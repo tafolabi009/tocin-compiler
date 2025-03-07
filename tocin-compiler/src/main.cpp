@@ -8,7 +8,7 @@
 #include "parser/parser.h"
 #include "type/type_checker.h"
 #include "codegen/ir_generator.h"
-#include "compilation_context.h"
+#include "compiler/compilation_context.h"
 #include "error/error_handler.h"
 
 // Print help and usage instructions.

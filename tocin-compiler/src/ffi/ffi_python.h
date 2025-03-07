@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ffi_interface.h"
-#include <Python.h>
+#include <python3.12/Python.h>
 #include <vector>
 #include <string>
 

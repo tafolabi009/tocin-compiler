@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <exception>
+#include <stdexcept>
 #include "../lexer/token.h"
 
 namespace error {

@@ -1,4 +1,7 @@
+#pragma once
+
 // tocin-compiler/src/lexer/lexer.cpp
+#include "token.h"
 #include "lexer.h"
 #include <stdexcept>
 #include <cctype>

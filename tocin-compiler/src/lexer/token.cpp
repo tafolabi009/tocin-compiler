@@ -1,3 +1,5 @@
+#pragma once
+
 // tocin-compiler/src/lexer/token.cpp
 #include "token.h"
 #include <sstream>

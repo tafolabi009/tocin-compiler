@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <memory>
 #include <string>
 #include <unordered_map>
@@ -22,11 +23,14 @@
 #include "llvm/Support/raw_ostream.h"
 #include "llvm/Target/TargetMachine.h"
 #include "llvm/Target/TargetOptions.h"
-#include "llvm/Support/Host.h"
+#include "llvm/TargetParser/Host.h"
 #include "llvm/Support/FileSystem.h"
 #ifdef _MSC_VER
 #pragma warning(pop)
 #endif
+
+using std::cerr;
+using std::endl;
 
 class IRGenerator : public ast::Visitor {
 public:
