@@ -32,6 +32,27 @@ add_definitions(${LLVM_DEFINITIONS})
 include_directories(${LLVM_INCLUDE_DIRS})
 link_directories(${LLVM_LIBRARY_DIRS})
 
+# Find the Python header files.
+find_path(PYTHON_INCLUDE_DIR NAMES Python.h
+  HINTS "C:/msys64/mingw64/include/python3.12"
+)
+
+# Find the PYTHON import library.
+find_library(PYTHON_LIBRARY NAMES libpython3.12.dll.a libpython3.dll.a
+  HINTS "C:/msys64/mingw64/lib"
+)
+
+if(PYTHON_INCLUDE_DIR AND PYTHON_LIBRARY)
+  message(STATUS "Found PYTHON headers in: ${V8_INCLUDE_DIR}")
+  message(STATUS "Found PYTHON library: ${V8_LIBRARY}")
+  include_directories(${V8_INCLUDE_DIR})
+  set(EXTRA_LIBS ${V8_LIBRARY})
+else()
+  message(WARNING "Python not found. Python-related functionality will be disabled.")
+  set(EXTRA_LIBS "")
+endif()
+
+
 # -------------------------
 # V8 Integration
 # -------------------------

@@ -1,3 +1,4 @@
+#pragma once
 #include "ffi_python.h"
 #include <stdexcept>
 #include <sstream>

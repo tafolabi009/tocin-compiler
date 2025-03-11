@@ -1,3 +1,5 @@
+#pragma once
+// File: compilation_context.cpp
 #include "compilation_context.h"
 #include "../ffi/ffi_javascript.h"
 #include "../ffi/ffi_python.h"

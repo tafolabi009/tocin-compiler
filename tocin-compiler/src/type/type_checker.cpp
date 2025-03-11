@@ -2,13 +2,18 @@
 #include <sstream>
 #include <iostream>
 
+// ---------------------------------------------------------------------------
+// Constructor & Built-in Types Initialization
+// ---------------------------------------------------------------------------
+
 TypeChecker::TypeChecker() {
-    currentEnvironment = std::make_shared<Environment>();
-    initializeBuiltinTypes();
+    // Create a global environment with no enclosing scope.
+    currentEnvironment = std::make_shared<Environment>(nullptr);
+    TypeChecker::initializeBuiltinTypes();
 }
 
 void TypeChecker::initializeBuiltinTypes() {
-    // Initialize built-in types
+    // Initialize built-in types (adjust tokens as needed)
     auto intType = std::make_shared<ast::SimpleType>(Token(TokenType::INT, "int", "", 0, 0));
     auto floatType = std::make_shared<ast::SimpleType>(Token(TokenType::FLOAT64, "float64", "", 0, 0));
     auto boolType = std::make_shared<ast::SimpleType>(Token(TokenType::BOOL, "bool", "", 0, 0));
@@ -22,9 +27,12 @@ void TypeChecker::initializeBuiltinTypes() {
     currentEnvironment->define("None", noneType, true);
 }
 
+// ---------------------------------------------------------------------------
+// Public Interface: analyze and check
+// ---------------------------------------------------------------------------
+
 void TypeChecker::analyze(std::shared_ptr<ast::Statement> ast) {
-    // For demonstration: check for functions with non-None return type that lack a return statement.
-    // (A real implementation would traverse the AST more thoroughly.)
+    // Dummy static analysis: traverse the AST.
     std::cout << "Static analysis: Analysis complete (dummy implementation)." << std::endl;
 }
 
@@ -37,6 +45,10 @@ void TypeChecker::check(std::shared_ptr<ast::Statement> ast) {
     }
 }
 
+// ---------------------------------------------------------------------------
+// Visitor Methods for Expressions
+// ---------------------------------------------------------------------------
+
 void TypeChecker::visitBinaryExpr(ast::BinaryExpr* expr) {
     expr->left->accept(*this);
     auto leftType = expressionTypes.top();
@@ -46,7 +58,7 @@ void TypeChecker::visitBinaryExpr(ast::BinaryExpr* expr) {
     auto rightType = expressionTypes.top();
     expressionTypes.pop();
 
-    // Type checking rules for binary operations
+    // Arithmetic operations require numeric types.
     if (expr->op.type == TokenType::PLUS ||
         expr->op.type == TokenType::MINUS ||
         expr->op.type == TokenType::STAR ||
@@ -55,9 +67,9 @@ void TypeChecker::visitBinaryExpr(ast::BinaryExpr* expr) {
         if (!isNumericType(leftType) || !isNumericType(rightType)) {
             throw error(*expr, "Arithmetic operations require numeric operands");
         }
-        // Result type is float64 if either operand is float64, otherwise int
         expressionTypes.push(promotedNumericType(leftType, rightType));
     }
+    // Comparison operators
     else if (expr->op.type == TokenType::EQUAL_EQUAL ||
         expr->op.type == TokenType::BANG_EQUAL ||
         expr->op.type == TokenType::LESS ||
@@ -68,10 +80,46 @@ void TypeChecker::visitBinaryExpr(ast::BinaryExpr* expr) {
         if (!isTypeAssignable(leftType, rightType)) {
             throw error(*expr, "Comparison requires compatible types");
         }
-        // Comparison operations always result in bool
+        // Comparisons produce a boolean.
         expressionTypes.push(std::make_shared<ast::SimpleType>(
             Token(TokenType::BOOL, "bool", "", 0, 0)));
     }
+}
+
+void TypeChecker::visitGroupingExpr(ast::GroupingExpr* expr) {
+    // Assume a grouping simply wraps an inner expression.
+    if (expr->expression) {
+        expr->expression->accept(*this);
+    }
+}
+
+void TypeChecker::visitLiteralExpr(ast::LiteralExpr* expr) {
+    // A simple implementation based on the token type.
+    switch (expr->token.type) {
+    case TokenType::INT:
+        expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::INT, "int", "", 0, 0)));
+        break;
+    case TokenType::FLOAT64:
+        expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::FLOAT64, "float64", "", 0, 0)));
+        break;
+    case TokenType::BOOL:
+        expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::BOOL, "bool", "", 0, 0)));
+        break;
+    case TokenType::STRING:
+        expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::STRING, "string", "", 0, 0)));
+        break;
+    default:
+        expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "None", "", 0, 0)));
+        break;
+    }
+}
+
+void TypeChecker::visitUnaryExpr(ast::UnaryExpr* expr) {
+    // Evaluate the operand and assume the type is unchanged.
+    expr->right->accept(*this);
+    auto type = expressionTypes.top();
+    expressionTypes.pop();
+    expressionTypes.push(type);
 }
 
 void TypeChecker::visitVariableExpr(ast::VariableExpr* expr) {
@@ -104,24 +152,109 @@ void TypeChecker::visitAssignExpr(ast::AssignExpr* expr) {
     expressionTypes.push(varType);
 }
 
+void TypeChecker::visitCallExpr(ast::CallExpr* expr) {
+    // A dummy implementation: evaluate the callee and arguments.
+    expr->callee->accept(*this);
+    for (auto& arg : expr->arguments) {
+        arg->accept(*this);
+    }
+    // For now, assume function calls return "None".
+    expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "None", "", 0, 0)));
+}
+
+void TypeChecker::visitGetExpr(ast::GetExpr* expr) {
+    // Not implemented: push a default type.
+    expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "None", "", 0, 0)));
+}
+
+void TypeChecker::visitSetExpr(ast::SetExpr* expr) {
+    // Not implemented: push a default type.
+    expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "None", "", 0, 0)));
+}
+
+void TypeChecker::visitListExpr(ast::ListExpr* expr) {
+    // Not implemented: assume type "list".
+    expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "list", "", 0, 0)));
+}
+
+void TypeChecker::visitDictionaryExpr(ast::DictionaryExpr* expr) {
+    // Not implemented: assume type "dict".
+    expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "dict", "", 0, 0)));
+}
+
+void TypeChecker::visitLambdaExpr(ast::LambdaExpr* expr) {
+    // Not implemented: assume a lambda type.
+    expressionTypes.push(std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "lambda", "", 0, 0)));
+}
+
+// ---------------------------------------------------------------------------
+// Visitor Methods for Statements
+// ---------------------------------------------------------------------------
+
+void TypeChecker::visitExpressionStmt(ast::ExpressionStmt* stmt) {
+    stmt->expression->accept(*this);
+}
+
+void TypeChecker::visitVariableStmt(ast::VariableStmt* stmt) {
+    // Evaluate initializer and add the variable to the current environment.
+    stmt->initializer->accept(*this);
+    auto initType = expressionTypes.top();
+    expressionTypes.pop();
+    currentEnvironment->define(stmt->name, initType, stmt->isConstant);
+}
+
+void TypeChecker::visitBlockStmt(ast::BlockStmt* stmt) {
+    beginScope();
+    for (auto& statement : stmt->statements) {
+        statement->accept(*this);
+    }
+    endScope();
+}
+
+void TypeChecker::visitIfStmt(ast::IfStmt* stmt) {
+    stmt->condition->accept(*this);
+    auto condType = expressionTypes.top();
+    expressionTypes.pop();
+    if (condType->toString() != "bool") {
+        throw error(*stmt, "If statement condition must be a boolean");
+    }
+    stmt->thenBranch->accept(*this);
+    if (stmt->elseBranch) {
+        stmt->elseBranch->accept(*this);
+    }
+}
+
+void TypeChecker::visitWhileStmt(ast::WhileStmt* stmt) {
+    stmt->condition->accept(*this);
+    auto condType = expressionTypes.top();
+    expressionTypes.pop();
+    if (condType->toString() != "bool") {
+        throw error(*stmt, "While statement condition must be a boolean");
+    }
+    stmt->body->accept(*this);
+}
+
+void TypeChecker::visitForStmt(ast::ForStmt* stmt) {
+    beginScope();
+    // Evaluate the iterable.
+    stmt->iterable->accept(*this);
+    // In a real implementation, determine the element type.
+    currentEnvironment->define(stmt->variable, std::make_shared<ast::SimpleType>(Token(TokenType::IDENTIFIER, "var", "", 0, 0)), false);
+    stmt->body->accept(*this);
+    endScope();
+}
+
 void TypeChecker::visitFunctionStmt(ast::FunctionStmt* stmt) {
     beginScope();
-
-    // Add parameters to the new scope
+    // Define parameters in the new scope.
     for (const auto& param : stmt->parameters) {
         currentEnvironment->define(param.name, param.type, false);
     }
-
-    // Set current function return type for checking return statements
+    // Save the previous return type.
     auto previousReturnType = currentFunctionReturnType;
     currentFunctionReturnType = stmt->returnType;
-
-    // Check function body
     stmt->body->accept(*this);
-
-    // Restore previous return type
     currentFunctionReturnType = previousReturnType;
-
     endScope();
 }
 
@@ -129,12 +262,10 @@ void TypeChecker::visitReturnStmt(ast::ReturnStmt* stmt) {
     if (!currentFunctionReturnType) {
         throw error(*stmt, "Return statement outside of function");
     }
-
     if (stmt->value) {
         stmt->value->accept(*this);
         auto returnedType = expressionTypes.top();
         expressionTypes.pop();
-
         if (!isTypeAssignable(currentFunctionReturnType, returnedType)) {
             throw error(*stmt, "Cannot return value of type '" + returnedType->toString() +
                 "' from function returning '" + currentFunctionReturnType->toString() + "'");
@@ -146,18 +277,56 @@ void TypeChecker::visitReturnStmt(ast::ReturnStmt* stmt) {
     }
 }
 
-bool TypeChecker::isTypeAssignable(std::shared_ptr<ast::Type> target,
-    std::shared_ptr<ast::Type> source) {
+void TypeChecker::visitClassStmt(ast::ClassStmt* stmt) {
+    // Not implemented.
+}
+
+void TypeChecker::visitImportStmt(ast::ImportStmt* stmt) {
+    // Not implemented.
+}
+
+void TypeChecker::visitMatchStmt(ast::MatchStmt* stmt) {
+    // Not implemented.
+}
+
+// ---------------------------------------------------------------------------
+// Scope Management
+// ---------------------------------------------------------------------------
+
+void TypeChecker::beginScope() {
+    // Create a new environment with the current one as its parent.
+    currentEnvironment = std::make_shared<Environment>(currentEnvironment);
+}
+
+void TypeChecker::endScope() {
+    // Pop back to the enclosing environment using the getter.
+    if (currentEnvironment && currentEnvironment->getEnclosing()) {
+        currentEnvironment = currentEnvironment->getEnclosing();
+    }
+    else {
+        // Already at global scope; optionally handle this case.
+    }
+}
+
+// ---------------------------------------------------------------------------
+// Utility Functions
+// ---------------------------------------------------------------------------
+
+std::shared_ptr<ast::Type> TypeChecker::checkExpression(std::shared_ptr<ast::Expression> expr) {
+    expr->accept(*this);
+    auto result = expressionTypes.top();
+    expressionTypes.pop();
+    return result;
+}
+
+bool TypeChecker::isTypeAssignable(std::shared_ptr<ast::Type> target, std::shared_ptr<ast::Type> source) {
     if (target->toString() == source->toString()) {
         return true;
     }
-
-    // Handle numeric type promotions
+    // Allow int-to-float64 promotion.
     if (isNumericType(target) && isNumericType(source)) {
-        // Allow int to float64 promotion
         return target->toString() == "float64" && source->toString() == "int";
     }
-
     return false;
 }
 
@@ -166,16 +335,11 @@ bool TypeChecker::isNumericType(std::shared_ptr<ast::Type> type) {
     return typeName == "int" || typeName == "float64";
 }
 
-std::shared_ptr<ast::Type> TypeChecker::promotedNumericType(
-    std::shared_ptr<ast::Type> type1,
-    std::shared_ptr<ast::Type> type2) {
-
+std::shared_ptr<ast::Type> TypeChecker::promotedNumericType(std::shared_ptr<ast::Type> type1, std::shared_ptr<ast::Type> type2) {
     if (type1->toString() == "float64" || type2->toString() == "float64") {
-        return std::make_shared<ast::SimpleType>(
-            Token(TokenType::FLOAT64, "float64", "", 0, 0));
+        return std::make_shared<ast::SimpleType>(Token(TokenType::FLOAT64, "float64", "", 0, 0));
     }
-    return std::make_shared<ast::SimpleType>(
-        Token(TokenType::INT, "int", "", 0, 0));
+    return std::make_shared<ast::SimpleType>(Token(TokenType::INT, "int", "", 0, 0));
 }
 
 TypeCheckError TypeChecker::error(const ast::Node& node, const std::string& message) {
@@ -185,9 +349,11 @@ TypeCheckError TypeChecker::error(const ast::Node& node, const std::string& mess
     return TypeCheckError(ss.str());
 }
 
-void TypeChecker::Environment::define(const std::string& name,
-    std::shared_ptr<ast::Type> type,
-    bool isConst) {
+// ---------------------------------------------------------------------------
+// Environment Methods
+// ---------------------------------------------------------------------------
+
+void TypeChecker::Environment::define(const std::string& name, std::shared_ptr<ast::Type> type, bool isConst) {
     values[name] = type;
     constants[name] = isConst;
 }

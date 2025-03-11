@@ -1,3 +1,4 @@
+#pragma once
 #include "ffi_cpp.h"
 #include <stdexcept>
 #include <iostream>

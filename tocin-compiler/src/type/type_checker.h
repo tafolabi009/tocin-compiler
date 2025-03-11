@@ -1,4 +1,3 @@
-// tocin-compiler/src/type/type_checker.h
 #pragma once
 
 #include <memory>
@@ -16,6 +15,7 @@ public:
 class TypeChecker : public ast::Visitor {
 public:
     TypeChecker();
+    void initializeBuiltinTypes();
     void check(std::shared_ptr<ast::Statement> ast);
 
     // New: Run additional static analysis checks.
@@ -31,6 +31,9 @@ private:
         void define(const std::string& name, std::shared_ptr<ast::Type> type, bool isConstant = false);
         std::shared_ptr<ast::Type> get(const std::string& name);
         bool isConstant(const std::string& name);
+
+        // Added getter for the enclosing environment
+        std::shared_ptr<Environment> getEnclosing() const { return enclosing; }
 
     private:
         std::unordered_map<std::string, std::shared_ptr<ast::Type>> values;
@@ -48,6 +51,8 @@ private:
     void endScope();
     std::shared_ptr<ast::Type> checkExpression(std::shared_ptr<ast::Expression> expr);
     bool isTypeAssignable(std::shared_ptr<ast::Type> target, std::shared_ptr<ast::Type> source);
+    bool isNumericType(std::shared_ptr<ast::Type> type);
+    std::shared_ptr<ast::Type> promotedNumericType(std::shared_ptr<ast::Type> type1, std::shared_ptr<ast::Type> type2);
     TypeCheckError error(const ast::Node& node, const std::string& message);
 
     // Visitor implementation for expressions
