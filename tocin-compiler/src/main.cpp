@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <fstream>
+#ifdef _WIN32
+#define MS_WINDOWS
+#endif
 #include <sstream>
 #include <string>
 #include <vector>
@@ -13,7 +16,8 @@
 #include "error/error_handler.h"
 
 // Print help and usage instructions.
-void printUsage() {
+void printUsage()
+{
     std::cout << "Tocin Compiler v0.2.1\n";
     std::cout << "Usage:\n";
     std::cout << "  tocin [options] <file.to>\n";
@@ -28,14 +32,18 @@ void printUsage() {
 }
 
 // REPL mode: read-eval-print loop.
-void startREPL(CompilationContext& context) {
+void startREPL(CompilationContext &context)
+{
     std::string line;
     std::cout << "Entering Tocin REPL mode. Type ':quit' to exit.\n";
-    while (true) {
+    while (true)
+    {
         std::cout << "tocin> ";
         std::getline(std::cin, line);
-        if (line == ":quit") break;
-        if (line.empty()) continue;
+        if (line == ":quit")
+            break;
+        if (line.empty())
+            continue;
 
         // Set the current line as the source code.
         context.sourceCode = line;
@@ -47,7 +55,8 @@ void startREPL(CompilationContext& context) {
         // Parsing
         auto parser = std::make_unique<Parser>(tokens);
         auto ast = parser->parse();
-        if (!ast) {
+        if (!ast)
+        {
             std::cerr << "Parsing error. Please check your syntax.\n";
             continue;
         }
@@ -55,50 +64,90 @@ void startREPL(CompilationContext& context) {
         // Type Checking
         auto typeChecker = std::make_unique<TypeChecker>();
         typeChecker->check(ast);
-        if (context.hasErrors()) {
+        if (context.hasErrors())
+        {
             std::cerr << "Type checking error.\n";
+            // Optionally, print detailed errors here.
             continue;
         }
 
         // IR Generation (or you might interpret/JIT compile in a future version)
         auto irGenerator = std::make_unique<IRGenerator>();
         std::string tempOutput = "repl_output.ll";
-        try {
+        try
+        {
             irGenerator->generate(ast, tempOutput);
             std::ifstream irFile(tempOutput);
+            if (!irFile)
+            {
+                std::cerr << "Error: Could not open temporary IR file.\n";
+                continue;
+            }
             std::stringstream irContent;
             irContent << irFile.rdbuf();
-            std::cout << "Generated IR:\n" << irContent.str() << "\n";
+            std::cout << "Generated IR:\n"
+                      << irContent.str() << "\n";
         }
-        catch (const std::exception& e) {
+        catch (const std::exception &e)
+        {
             std::cerr << "IR generation error: " << e.what() << "\n";
         }
     }
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char **argv)
+{
     std::string inputFile;
     int optimizationLevel = 0;
     bool debugInfo = false;
 
     // Parse command-line arguments.
-    if (argc == 1) {
+    if (argc == 1)
+    {
         // No arguments: REPL mode.
     }
-    else {
-        for (int i = 1; i < argc; i++) {
+    else
+    {
+        for (int i = 1; i < argc; i++)
+        {
             std::string arg = argv[i];
-            if (arg == "-h" || arg == "--help") {
+            if (arg == "-h" || arg == "--help")
+            {
                 printUsage();
                 return 0;
             }
-            else if (arg == "-O" && i + 1 < argc) {
-                optimizationLevel = std::stoi(argv[++i]);
+            else if (arg == "-O")
+            {
+                if (i + 1 < argc)
+                {
+                    try
+                    {
+                        optimizationLevel = std::stoi(argv[++i]);
+                    }
+                    catch (const std::exception &e)
+                    {
+                        std::cerr << "Invalid optimization level provided: " << argv[i] << "\n";
+                        return 1;
+                    }
+                }
+                else
+                {
+                    std::cerr << "Missing optimization level after -O option.\n";
+                    return 1;
+                }
             }
-            else if (arg == "-g") {
+            else if (arg == "-g")
+            {
                 debugInfo = true;
             }
-            else if (arg[0] != '-') {
+            else if (arg[0] == '-')
+            {
+                std::cerr << "Unknown option: " << arg << "\n";
+                printUsage();
+                return 1;
+            }
+            else
+            {
                 inputFile = arg;
             }
         }
@@ -111,13 +160,16 @@ int main(int argc, char** argv) {
         context.enableDebugInfo();
 
     // REPL mode if no file provided.
-    if (inputFile.empty()) {
+    if (inputFile.empty())
+    {
         startREPL(context);
     }
-    else {
+    else
+    {
         // Read the entire source file.
         std::ifstream inFile(inputFile);
-        if (!inFile.is_open()) {
+        if (!inFile.is_open())
+        {
             std::cerr << "Error: Cannot open file " << inputFile << "\n";
             return 1;
         }
@@ -126,6 +178,12 @@ int main(int argc, char** argv) {
         context.sourceCode = buffer.str();
         inFile.close();
 
+        if (context.sourceCode.empty())
+        {
+            std::cerr << "Error: Source file is empty.\n";
+            return 1;
+        }
+
         // Lexical Analysis
         auto lexer = std::make_unique<Lexer>(context.sourceCode, inputFile);
         auto tokens = lexer->tokenize();
@@ -133,27 +191,37 @@ int main(int argc, char** argv) {
         // Parsing
         auto parser = std::make_unique<Parser>(tokens);
         auto ast = parser->parse();
-        if (!ast) {
-            std::cerr << "Parsing failed.\n";
+        if (!ast)
+        {
+            std::cerr << "Parsing failed. Please check the syntax of your source file.\n";
             return 1;
         }
 
         // Type Checking
         auto typeChecker = std::make_unique<TypeChecker>();
         typeChecker->check(ast);
-        if (context.hasErrors()) {
-            std::cerr << "Type checking failed.\n";
+        if (context.hasErrors())
+        {
+            std::cerr << "Type checking failed. See error messages for details.\n";
             return 1;
         }
 
         // IR Generation: Generate LLVM IR output.
         auto irGenerator = std::make_unique<IRGenerator>();
-        std::string outputFile = inputFile.substr(0, inputFile.find_last_of('.')) + ".ll";
-        try {
+        std::string outputFile;
+        size_t dotPos = inputFile.find_last_of('.');
+        if (dotPos != std::string::npos)
+            outputFile = inputFile.substr(0, dotPos);
+        else
+            outputFile = inputFile;
+        outputFile += ".ll";
+        try
+        {
             irGenerator->generate(ast, outputFile);
             std::cout << "Compilation successful. Output written to " << outputFile << "\n";
         }
-        catch (const std::exception& e) {
+        catch (const std::exception &e)
+        {
             std::cerr << "IR generation error: " << e.what() << "\n";
             return 1;
         }

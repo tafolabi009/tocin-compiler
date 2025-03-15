@@ -1,7 +1,10 @@
 #pragma once
+#ifdef _WIN32
+#define MS_WINDOWS
+#endif
+#include <python3.12/Python.h>
 
 #include "ffi_interface.h"
-#include <python3.12/Python.h>
 #include <vector>
 #include <string>
 

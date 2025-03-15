@@ -78,7 +78,6 @@ namespace ffi {
             if (result.IsEmpty()) {
                 throw std::runtime_error("JavaScript function call failed");
             }
-            // Optionally: Verify output here.
             return convertFromV8Value(result.ToLocalChecked());
         }
         catch (const std::exception& e) {

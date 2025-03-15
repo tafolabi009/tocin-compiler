@@ -1,5 +1,7 @@
-#pragma once
+#ifndef TOKEN_H
+#define TOKEN_H
 
+#include <iostream>
 #include <string>
 
 enum class TokenType {
@@ -27,6 +29,9 @@ enum class TokenType {
     OVERRIDE,
     SPAWN,
     PURE,
+    TRUE,
+    FALSE,
+    NIL,
 
     // Types
     TYPE,
@@ -138,7 +143,7 @@ public:
 
     // Helper functions for token type checking
     bool isKeyword() const {
-        return type >= TokenType::DEF && type <= TokenType::PURE;
+        return type >= TokenType::DEF && type <= TokenType::NIL;
     }
 
     bool isType() const {
@@ -157,3 +162,5 @@ public:
         return type >= TokenType::LEFT_PAREN && type <= TokenType::RIGHT_BRACE;
     }
 };
+
+#endif // TOKEN_H

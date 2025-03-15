@@ -1,4 +1,3 @@
-// tocin-compiler/src/parser/parser.h
 #pragma once
 
 #include <vector>
@@ -60,6 +59,7 @@ private:
     std::shared_ptr<ast::Expression> multiplication();
     std::shared_ptr<ast::Expression> unary();
     std::shared_ptr<ast::Expression> call();
+    std::shared_ptr<ast::Expression> finishCall(std::shared_ptr<ast::Expression> callee);
     std::shared_ptr<ast::Expression> primary();
     std::shared_ptr<ast::Expression> list();
     std::shared_ptr<ast::Expression> dictionary();
@@ -68,5 +68,12 @@ private:
     // Type parsing
     std::shared_ptr<ast::Type> parseType();
     std::shared_ptr<ast::Type> parseSimpleType();
+void finishCall();
     std::shared_ptr<ast::Type> parseGenericType(const Token& nameToken);
+
+    bool check(TokenType type);
+    Token peek();
+    void error(const std::string& message);
+    // If finishCall is a member function, declare it here:
+    std::shared_ptr<ast::Expression> finishCall(std::shared_ptr<ast::Expression> callee); 
 };
