@@ -114,7 +114,8 @@ namespace ffi {
                 for (size_t i = 0; i < arr.size(); i++) {
                     jsArr->Set(context, static_cast<uint32_t>(i),
                         std::visit(Visitor(isolate, context), arr[i].getValue()))
-                        .FromMaybe(v8::Local<v8::Value>());
+                        .FromMaybe(false);
+
                 }
                 return jsArr;
             }

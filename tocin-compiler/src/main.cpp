@@ -11,6 +11,7 @@
 #include "lexer/lexer.h"
 #include "parser/parser.h"
 #include "type/type_checker.h"
+#include "lexer/token.h" 
 #include "codegen/ir_generator.h"
 #include "compiler/compilation_context.h"
 #include "error/error_handler.h"
