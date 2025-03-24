@@ -37,6 +37,9 @@ public:
     IRGenerator();
     void generate(std::shared_ptr<ast::Statement> ast, const std::string& outputFile);
 
+public:
+    virtual ~IRGenerator() = default;  // Ensure vtable is generated
+
 private:
     // LLVM context, module, and IR builder
     std::unique_ptr<llvm::LLVMContext> context;

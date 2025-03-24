@@ -1,4 +1,4 @@
-#pragma once
+
 #include "ffi_javascript.h"
 #include <stdexcept>
 #include <iostream>
