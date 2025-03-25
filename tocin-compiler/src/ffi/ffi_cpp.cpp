@@ -1,5 +1,5 @@
 // File: src/ffi/ffi_cpp.cpp
-#include "../ffi/ffi_cpp.h"
+#include "ffi_cpp.h"
 #include <stdexcept>
 #include <iostream>
 

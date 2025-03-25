@@ -1,5 +1,5 @@
 // File: src/ffi/ffi_python.cpp
-#include "../ffi/ffi_python.h"
+#include "ffi_python.h"
 #include <stdexcept>
 #include <sstream>
 

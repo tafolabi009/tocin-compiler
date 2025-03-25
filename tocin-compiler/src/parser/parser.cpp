@@ -1,5 +1,5 @@
 // File: src/parser/parser.cpp
-#include "../parser/parser.h"
+#include "parser.h"
 #include <iostream>
 #include <algorithm>
 

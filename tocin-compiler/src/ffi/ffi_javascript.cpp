@@ -1,5 +1,5 @@
 // File: src/ffi/ffi_javascript.cpp
-#include "../ffi/ffi_javascript.h"
+#include "ffi_javascript.h"
 #include <stdexcept>
 #include <iostream>
 

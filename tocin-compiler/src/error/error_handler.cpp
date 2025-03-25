@@ -1,5 +1,5 @@
 // File: src/error/error_handler.cpp
-#include "../error/error_handler.h"
+#include "error_handler.h"
 #include <iostream>
 
 namespace error {

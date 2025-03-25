@@ -1,7 +1,7 @@
 // File: src/compiler/compilation_context.cpp
-#include "../compiler/compilation_context.h"
+#include "compilation_context.h"
 #include <stdexcept>
-#include <Python.h>
+#include <python3.12/Python.h>
 #include <mutex>
 
 namespace compiler {
