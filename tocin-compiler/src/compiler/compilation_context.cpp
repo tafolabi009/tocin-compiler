@@ -7,7 +7,7 @@
 namespace compiler {
 
     namespace {
-        std::mutex pythonInitMutex;  ///< Ensures thread-safe Python initialization
+        std::mutex pythonInitMutex;
     }
 
     CompilationContext::CompilationContext(const std::string& fname) : filename(fname) {
@@ -17,8 +17,6 @@ namespace compiler {
     void CompilationContext::initialize() {
         try {
             errorHandler = std::make_shared<error::ErrorHandler>();
-
-            // Thread-safe Python initialization
             {
                 std::lock_guard<std::mutex> lock(pythonInitMutex);
                 if (!Py_IsInitialized()) {
@@ -32,16 +30,10 @@ namespace compiler {
                     pythonInitialized = true;
                 }
             }
-
-            // Initialize FFI interfaces
             javascriptFFI = std::make_shared<ffi::JavaScriptFFI>();
             pythonFFI = std::make_shared<ffi::PythonFFI>();
             cppFFI = std::make_shared<ffi::CppFFI>();
-
-            // Register built-in functions
             registerBuiltInFunctions();
-
-            // Initialize LLVM
             llvmContext = std::make_unique<llvm::LLVMContext>();
             module = std::make_unique<llvm::Module>(filename, *llvmContext);
         }
@@ -57,7 +49,6 @@ namespace compiler {
     }
 
     void CompilationContext::registerBuiltInFunctions() {
-        // Register C++ sizeof function
         cppFFI->registerFunction("sizeof", [this](const std::vector<ffi::FFIValue>& args) -> ffi::FFIValue {
             try {
                 if (args.empty()) {
@@ -91,7 +82,6 @@ namespace compiler {
             }
             });
 
-        // Register C++ print function (example)
         cppFFI->registerFunction("print", [this](const std::vector<ffi::FFIValue>& args) -> ffi::FFIValue {
             std::ostringstream oss;
             for (size_t i = 0; i < args.size(); ++i) {

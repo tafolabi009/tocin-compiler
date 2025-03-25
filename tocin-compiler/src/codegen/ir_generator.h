@@ -9,22 +9,19 @@
 
 namespace ir {
 
-    /// @brief Generates LLVM IR from an AST
     class IRGenerator : public ast::Visitor {
     public:
-        /// @brief Constructs an IR generator with a compilation context
         explicit IRGenerator(CompilationContext& ctx);
-
-        /// @brief Generates IR for the given statement
         void generate(std::shared_ptr<ast::Statement> stmt);
 
     private:
-        CompilationContext& context;                    ///< Compilation context
-        std::unique_ptr<llvm::IRBuilder<> > builder;    ///< LLVM IR builder
-        std::stack<llvm::Value*> valueStack;            ///< Stack for expression values
-        std::unordered_map<std::string, llvm::Value*> variables; ///< Variable mappings
+        CompilationContext& context;
+        std::unique_ptr<llvm::IRBuilder<> > builder;
+        std::stack<llvm::Value*> valueStack;
+        std::unordered_map<std::string, llvm::Value*> variables;
+        std::unordered_map<std::string, llvm::Function*> functions;
+        llvm::Function* currentFunction = nullptr;
 
-        // Visitor methods
         void visitExpressionStmt(ast::ExpressionStmt* stmt) override;
         void visitVariableStmt(ast::VariableStmt* stmt) override;
         void visitFunctionStmt(ast::FunctionStmt* stmt) override;
@@ -50,16 +47,9 @@ namespace ir {
         void visitDictionaryExpr(ast::DictionaryExpr* expr) override;
         void visitLambdaExpr(ast::LambdaExpr* expr) override;
 
-        /// @brief Pushes a value onto the stack
         void pushValue(llvm::Value* value);
-
-        /// @brief Pops a value from the stack
         llvm::Value* popValue();
-
-        /// @brief Converts an FFIValue to an LLVM value
         llvm::Value* convertFFIValueToLLVM(const ffi::FFIValue& value, const Token& token);
-
-        /// @brief Converts an LLVM value to an FFIValue
         ffi::FFIValue convertLLVMToFFIValue(llvm::Value* value, const Token& token);
     };
 
