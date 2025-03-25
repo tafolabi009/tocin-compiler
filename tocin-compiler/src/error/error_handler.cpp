@@ -1,108 +1,44 @@
-
-
-#include "error_handler.h"
+// File: src/error/error_handler.cpp
+#include "../error/error_handler.h"
 #include <iostream>
-#include <sstream>
 
 namespace error {
 
-    std::string CompilerError::formattedMessage() const {
-        std::stringstream ss;
-        ss << filename << ":" << line << ":" << column << ": ";
-
-        switch (severity) {
-        case ErrorSeverity::INFO:
-            ss << "info: ";
-            break;
-        case ErrorSeverity::WARNING:
-            ss << "warning: ";
-            break;
-        case ErrorSeverity::ERROR:
-            ss << "error: ";
-            break;
-        case ErrorSeverity::FATAL:
-            ss << "fatal error: ";
-            break;
-        }
-
-        ss << what();
-        return ss.str();
-    }
-
-    ErrorHandler::ErrorHandler()
-        : recovering(false), errorCount(0), warningCount(0) {}
-
-    void ErrorHandler::reportError(const CompilerError& error) {
-        errors.push_back(error);
-
-        if (error.severity == ErrorSeverity::WARNING) {
-            warningCount++;
-        }
-        else if (error.severity >= ErrorSeverity::ERROR) {
-            errorCount++;
-        }
-
-        logError(error);
-    }
-
-    void ErrorHandler::reportError(
-        const std::string& message,
-        const std::string& filename,
-        int line,
-        int column,
-        ErrorSeverity severity) {
-
-        reportError(CompilerError(message, filename, line, column, severity));
-    }
-
-    void ErrorHandler::reportError(
-        const std::string& message,
-        const Token& token,
-        ErrorSeverity severity) {
-
+    void ErrorHandler::reportError(const std::string& message, const Token& token, ErrorSeverity severity) {
         reportError(message, token.filename, token.line, token.column, severity);
     }
 
-    bool ErrorHandler::hasErrors() const {
-        return errorCount > 0;
-    }
+    void ErrorHandler::reportError(const std::string& message, const std::string& filename, int line, int column,
+        ErrorSeverity severity) {
+        std::lock_guard<std::mutex> lock(mutex);
+        if (inRecovery) return;
 
-    bool ErrorHandler::hasWarnings() const {
-        return warningCount > 0;
-    }
+        errors.emplace_back(message, filename, line, column, severity);
+        std::string severityStr = (severity == ErrorSeverity::WARNING) ? "Warning" :
+            (severity == ErrorSeverity::ERROR) ? "Error" : "Fatal";
+        std::cerr << filename << ":" << line << ":" << column << ": " << severityStr << ": " << message << std::endl;
 
-    void ErrorHandler::clear() {
-        errors.clear();
-        errorCount = 0;
-        warningCount = 0;
-        recovering = false;
-    }
-
-    const std::vector<CompilerError>& ErrorHandler::getErrors() const {
-        return errors;
+        if (severity == ErrorSeverity::FATAL) {
+            throw std::runtime_error("Fatal error encountered: " + message);
+        }
     }
 
     void ErrorHandler::beginRecovery() {
-        recovering = true;
+        std::lock_guard<std::mutex> lock(mutex);
+        inRecovery = true;
     }
 
     void ErrorHandler::endRecovery() {
-        recovering = false;
+        std::lock_guard<std::mutex> lock(mutex);
+        inRecovery = false;
     }
 
-    bool ErrorHandler::isRecovering() const {
-        return recovering;
-    }
-
-    void ErrorHandler::logError(const CompilerError& error) {
-        std::string message = error.formattedMessage();
-
-        if (error.severity >= ErrorSeverity::ERROR) {
-            std::cerr << message << std::endl;
+    bool ErrorHandler::hasErrors() const {
+        std::lock_guard<std::mutex> lock(mutex);
+        for (const auto& err : errors) {
+            if (err.severity != ErrorSeverity::WARNING) return true;
         }
-        else {
-            std::cout << message << std::endl;
-        }
+        return false;
     }
 
 } // namespace error

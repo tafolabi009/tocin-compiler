@@ -1,12 +1,13 @@
-
-
-// tocin-compiler/src/lexer/token.cpp
 #include "token.h"
-#include <sstream>
 
 std::string Token::toString() const {
-    std::stringstream ss;
-    ss << "[" << static_cast<int>(type) << " '" << value << "' at "
-        << filename << ":" << line << ":" << column << "]";
-    return ss.str();
+    // Use the tokenTypeToString map for readable type names
+    auto typeIt = tokenTypeToString.find(type);
+    std::string typeStr = (typeIt != tokenTypeToString.end()) ? typeIt->second : "UNKNOWN";
+
+    // Efficient string concatenation
+    std::string result = "[" + typeStr + " '" + value + "' at " +
+        filename + ":" + std::to_string(line) + ":" +
+        std::to_string(column) + "]";
+    return result;
 }

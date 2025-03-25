@@ -1,12 +1,10 @@
-
-#include "ffi_cpp.h"
+// File: src/ffi/ffi_cpp.cpp
+#include "../ffi/ffi_cpp.h"
 #include <stdexcept>
 #include <iostream>
-#include <variant>
 
 namespace ffi {
 
-    // Helper functor to print an FFIValue
     struct FFIValuePrinter {
         void operator()(int64_t val) const { std::cout << val; }
         void operator()(double val) const { std::cout << val; }
@@ -41,43 +39,33 @@ namespace ffi {
     }
 
     CppFFI::CppFFI() {
-        // Register a built-in "print" function
         registerFunction("print", [](const std::vector<FFIValue>& args) -> FFIValue {
-            for (const auto& arg : args) {
-                printFFIValue(arg);
-                std::cout << " ";
+            for (size_t i = 0; i < args.size(); ++i) {
+                printFFIValue(args[i]);
+                if (i < args.size() - 1) std::cout << " ";
             }
             std::cout << std::endl;
-            return FFIValue();
+            return FFIValue(); // Null return
             });
     }
 
-    FFIValue CppFFI::callCpp(const std::string& functionName,
-        const std::vector<FFIValue>& args) {
-        try {
-            auto it = functions.find(functionName);
-            if (it == functions.end()) {
-                throw std::runtime_error("C++ function not found: " + functionName);
-            }
-            return it->second(args);
+    FFIValue CppFFI::callCpp(const std::string& functionName, const std::vector<FFIValue>& args) {
+        auto it = functions.find(functionName);
+        if (it == functions.end()) {
+            throw std::runtime_error("C++ function not found: " + functionName);
         }
-        catch (const std::exception& e) {
-            throw std::runtime_error("C++ FFI error: " + std::string(e.what()));
-        }
+        return it->second(args);
     }
 
     void CppFFI::registerFunction(const std::string& name, CppFunction func) {
         functions[name] = std::move(func);
     }
 
-    // Not supported in C++ FFI
-    FFIValue CppFFI::callJavaScript(const std::string& functionName,
-        const std::vector<FFIValue>& args) {
+    FFIValue CppFFI::callJavaScript(const std::string& functionName, const std::vector<FFIValue>& args) {
         throw std::runtime_error("JavaScript calls not supported in C++ FFI");
     }
 
-    FFIValue CppFFI::callPython(const std::string& moduleName,
-        const std::string& functionName,
+    FFIValue CppFFI::callPython(const std::string& moduleName, const std::string& functionName,
         const std::vector<FFIValue>& args) {
         throw std::runtime_error("Python calls not supported in C++ FFI");
     }

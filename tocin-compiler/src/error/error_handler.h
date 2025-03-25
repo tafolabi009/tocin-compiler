@@ -1,65 +1,58 @@
 // File: src/error/error_handler.h
-#ifndef ERROR_HANDLER_H
-#define ERROR_HANDLER_H
+#pragma once
 
 #include <string>
 #include <vector>
-#include <memory>
-#include <exception>
-#include <stdexcept>
 #include "../lexer/token.h"
+#include <mutex>
 
 namespace error {
-    enum class ErrorSeverity { INFO, WARNING, ERROR, FATAL };
 
-    class CompilerError : public std::exception {
-    public:
-        CompilerError(const std::string& message, const std::string& filename, int line, int column, ErrorSeverity severity)
-            : message(message), filename(filename), line(line), column(column), severity(severity) {}
-
-        const char* what() const noexcept override { return message.c_str(); }
-        std::string formattedMessage() const;
-
-        std::string message;
-        std::string filename;
-        int line;
-        int column;
-        ErrorSeverity severity;
+    /// @brief Severity levels for errors
+    enum class ErrorSeverity {
+        WARNING,
+        ERROR,
+        FATAL
     };
 
+    /// @brief Represents a compilation error or warning
+    struct Error {
+        std::string message;         ///< Error message
+        std::string filename;        ///< Source file
+        int line;                    ///< Line number
+        int column;                  ///< Column number
+        ErrorSeverity severity;      ///< Severity level
+
+        Error(const std::string& msg, const std::string& fname, int l, int c, ErrorSeverity sev)
+            : message(msg), filename(fname), line(l), column(c), severity(sev) {}
+    };
+
+    /// @brief Manages error reporting and recovery
     class ErrorHandler {
     public:
-        ErrorHandler();
+        /// @brief Reports an error with token information
+        void reportError(const std::string& message, const Token& token, ErrorSeverity severity);
 
-        void reportError(const CompilerError& error);
-        void reportError(
-            const std::string& message,
-            const std::string& filename,
-            int line,
-            int column,
-            ErrorSeverity severity);
-        void reportError(
-            const std::string& message,
-            const Token& token,
+        /// @brief Reports an error with explicit location
+        void reportError(const std::string& message, const std::string& filename, int line, int column,
             ErrorSeverity severity);
 
-        bool hasErrors() const;
-        bool hasWarnings() const;
-        void clear();
-        const std::vector<CompilerError>& getErrors() const;
-
+        /// @brief Begins error recovery mode (suppresses logging)
         void beginRecovery();
+
+        /// @brief Ends error recovery mode
         void endRecovery();
-        bool isRecovering() const;
+
+        /// @brief Checks if any errors (not warnings) have been reported
+        bool hasErrors() const;
+
+        /// @brief Gets the list of recorded errors
+        const std::vector<Error>& getErrors() const { return errors; }
 
     private:
-        void logError(const CompilerError& error);
-
-        std::vector<CompilerError> errors;
-        bool recovering;
-        int errorCount;
-        int warningCount;
+        std::vector<Error> errors;   ///< List of errors
+        bool inRecovery = false;     ///< Recovery mode flag
+        mutable std::mutex mutex;    ///< Ensures thread-safe error reporting
     };
-}
 
-#endif
+} // namespace error

@@ -1,36 +1,44 @@
+// File: src/compiler/compilation_context.h
 #pragma once
 
-#include <memory>
 #include <string>
+#include <memory>
 #include "../error/error_handler.h"
 #include "../ffi/ffi_interface.h"
+#include "../ffi/ffi_javascript.h"
+#include "../ffi/ffi_python.h"
+#include "../ffi/ffi_cpp.h"
+#include <llvm/IR/LLVMContext.h>
+#include <llvm/IR/Module.h>
 
-class CompilationContext {
-public:
-    CompilationContext(const std::string& filename);
-    ~CompilationContext() = default;
+namespace compiler {
 
-    // Error handling
-    std::shared_ptr<error::ErrorHandler> errorHandler;
+    /// @brief Manages the compilation process and shared resources
+    class CompilationContext {
+    public:
+        /// @brief Constructs a compilation context with a source filename
+        explicit CompilationContext(const std::string& filename);
 
-    // FFI interfaces (now using the enhanced versions)
-    std::shared_ptr<ffi::FFIInterface> javascriptFFI;
-    std::shared_ptr<ffi::FFIInterface> pythonFFI;
-    std::shared_ptr<ffi::FFIInterface> cppFFI;
+        /// @brief Initializes FFI interfaces and LLVM context
+        void initialize();
 
-    // Source file information
-    std::string filename;
-    std::string sourceCode;
+        /// @brief Cleans up resources
+        ~CompilationContext();
 
-    // Compilation flags
-    bool optimizationsEnabled;
-    bool debugInfoEnabled;
-    int optimizationLevel;
+        std::string filename;                          ///< Source file being compiled
+        std::shared_ptr<error::ErrorHandler> errorHandler; ///< Error reporting system
+        std::shared_ptr<ffi::JavaScriptFFI> javascriptFFI; ///< JavaScript FFI interface
+        std::shared_ptr<ffi::PythonFFI> pythonFFI;         ///< Python FFI interface
+        std::shared_ptr<ffi::CppFFI> cppFFI;               ///< C++ FFI interface
+        std::unique_ptr<llvm::LLVMContext> llvmContext;    ///< LLVM context for IR generation
+        std::unique_ptr<llvm::Module> module;              ///< LLVM module for IR
+        bool hasErrors = false;                            ///< Tracks if errors occurred
 
-    // Methods
-    void initialize();
-    void cleanup();
-    bool hasErrors() const;
-    void enableOptimizations(int level = 1);
-    void enableDebugInfo();
-};
+    private:
+        bool pythonInitialized = false;                    ///< Tracks Python interpreter state
+
+        /// @brief Registers built-in C++ functions
+        void registerBuiltInFunctions();
+    };
+
+} // namespace compiler

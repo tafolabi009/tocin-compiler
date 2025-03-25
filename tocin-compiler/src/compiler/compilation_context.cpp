@@ -1,101 +1,114 @@
 // File: src/compiler/compilation_context.cpp
-#include "compilation_context.h"
-#include "../ffi/ffi_value.h"        // For ffi::FFIValue
-#include "../error/error_handler.h"  // For error::CompilerError
-#ifdef _WIN32
-#define MS_WINDOWS
-#endif
+#include "../compiler/compilation_context.h"
+#include <stdexcept>
 #include <Python.h>
+#include <mutex>
 
-#ifdef _WIN32
-#include <windows.h>
-#include <io.h>
-#else
-#include <unistd.h>
-#endif
+namespace compiler {
 
-#include "../ffi/ffi_javascript.h"
-#include "../ffi/ffi_python.h"
-#include "../ffi/ffi_cpp.h"
+    namespace {
+        std::mutex pythonInitMutex;  ///< Ensures thread-safe Python initialization
+    }
 
-CompilationContext::CompilationContext(const std::string& filename)
-    : filename(filename), optimizationsEnabled(false), debugInfoEnabled(false), optimizationLevel(0) {
-    initialize();
-}
+    CompilationContext::CompilationContext(const std::string& fname) : filename(fname) {
+        initialize();
+    }
 
-void CompilationContext::initialize() {
-    try {
-        errorHandler = std::make_shared<error::ErrorHandler>();
-        javascriptFFI = std::make_shared<ffi::JavaScriptFFI>();
-        pythonFFI = std::make_shared<ffi::PythonFFI>();
-        cppFFI = std::make_shared<ffi::CppFFI>();
+    void CompilationContext::initialize() {
+        try {
+            errorHandler = std::make_shared<error::ErrorHandler>();
 
-        auto cpp = std::static_pointer_cast<ffi::CppFFI>(cppFFI);
-        cpp->registerFunction("sizeof", [](const std::vector<ffi::FFIValue>& args) -> ffi::FFIValue {
-            if (args.empty()) return ffi::FFIValue(0LL);
-
-            const ffi::FFIValue& arg = args[0];
-            if (arg.getType() == ffi::FFIValueType::String) {
-                std::string typeName = arg.getString();
-                if (typeName == "int") return ffi::FFIValue(static_cast<int64_t>(sizeof(int)));
-                if (typeName == "float") return ffi::FFIValue(static_cast<int64_t>(sizeof(float)));
-                if (typeName == "double") return ffi::FFIValue(static_cast<int64_t>(sizeof(double)));
-                return ffi::FFIValue(0LL);
-            }
-            else if (arg.getType() == ffi::FFIValueType::Integer) {
-                int64_t typeId = arg.getInteger();
-                switch (typeId) {
-                case 0: return ffi::FFIValue(static_cast<int64_t>(sizeof(char)));
-                case 1: return ffi::FFIValue(static_cast<int64_t>(sizeof(int)));
-                default: return ffi::FFIValue(0LL);
+            // Thread-safe Python initialization
+            {
+                std::lock_guard<std::mutex> lock(pythonInitMutex);
+                if (!Py_IsInitialized()) {
+                    Py_Initialize();
+                    if (!Py_IsInitialized()) {
+                        errorHandler->reportError(
+                            "Failed to initialize Python interpreter", filename, 0, 0, error::ErrorSeverity::FATAL
+                        );
+                        throw std::runtime_error("Python initialization failed");
+                    }
+                    pythonInitialized = true;
                 }
             }
-            return ffi::FFIValue(static_cast<int64_t>(sizeof(int64_t)));
+
+            // Initialize FFI interfaces
+            javascriptFFI = std::make_shared<ffi::JavaScriptFFI>();
+            pythonFFI = std::make_shared<ffi::PythonFFI>();
+            cppFFI = std::make_shared<ffi::CppFFI>();
+
+            // Register built-in functions
+            registerBuiltInFunctions();
+
+            // Initialize LLVM
+            llvmContext = std::make_unique<llvm::LLVMContext>();
+            module = std::make_unique<llvm::Module>(filename, *llvmContext);
+        }
+        catch (const std::exception& e) {
+            if (errorHandler) {
+                errorHandler->reportError(
+                    "Failed to initialize compilation context: " + std::string(e.what()),
+                    filename, 0, 0, error::ErrorSeverity::FATAL
+                );
+            }
+            throw;
+        }
+    }
+
+    void CompilationContext::registerBuiltInFunctions() {
+        // Register C++ sizeof function
+        cppFFI->registerFunction("sizeof", [this](const std::vector<ffi::FFIValue>& args) -> ffi::FFIValue {
+            try {
+                if (args.empty()) {
+                    errorHandler->reportError(
+                        "sizeof requires at least one argument", filename, 0, 0, error::ErrorSeverity::ERROR
+                    );
+                    return ffi::FFIValue(0LL);
+                }
+                const ffi::FFIValue& arg = args[0];
+                if (arg.getType() == ffi::FFIValueType::String) {
+                    std::string typeName = arg.getString();
+                    if (typeName == "int") return ffi::FFIValue(static_cast<int64_t>(sizeof(int)));
+                    if (typeName == "float") return ffi::FFIValue(static_cast<int64_t>(sizeof(float)));
+                    if (typeName == "double") return ffi::FFIValue(static_cast<int64_t>(sizeof(double)));
+                    errorHandler->reportError(
+                        "Unsupported type for sizeof: " + typeName, filename, 0, 0, error::ErrorSeverity::ERROR
+                    );
+                }
+                else {
+                    errorHandler->reportError(
+                        "sizeof expects a string argument", filename, 0, 0, error::ErrorSeverity::ERROR
+                    );
+                }
+                return ffi::FFIValue(0LL);
+            }
+            catch (const std::exception& e) {
+                errorHandler->reportError(
+                    "sizeof error: " + std::string(e.what()), filename, 0, 0, error::ErrorSeverity::ERROR
+                );
+                return ffi::FFIValue(0LL);
+            }
+            });
+
+        // Register C++ print function (example)
+        cppFFI->registerFunction("print", [this](const std::vector<ffi::FFIValue>& args) -> ffi::FFIValue {
+            std::ostringstream oss;
+            for (size_t i = 0; i < args.size(); ++i) {
+                std::visit([&oss](auto&& arg) { oss << arg; }, args[i].getValue());
+                if (i < args.size() - 1) oss << " ";
+            }
+            std::cout << oss.str() << std::endl;
+            return ffi::FFIValue();
             });
     }
-    catch (const std::exception& e) {
-        if (errorHandler) {
-            // Create a CompilerError object and then pass it to reportError
-            error::CompilerError err(
-                "Initialization error: " + std::string(e.what()),
-                filename,
-                0,
-                0,
-				error::ErrorSeverity::FATAL 
-            );
-            errorHandler->reportError(err);
+
+    CompilationContext::~CompilationContext() {
+        if (pythonInitialized && Py_IsInitialized()) {
+            PyGILState_STATE gstate = PyGILState_Ensure();
+            Py_Finalize();
+            PyGILState_Release(gstate);
         }
-    } // Added missing closing brace for try-catch block
-}
-
-
-void CompilationContext::cleanup() {
-    if (errorHandler) {
-        errorHandler->clear();
     }
 
-    // Reset FFI interfaces
-    javascriptFFI.reset();
-    pythonFFI.reset();
-    cppFFI.reset();
-}
-
-bool CompilationContext::hasErrors() const {
-    return errorHandler && errorHandler->hasErrors();
-}
-
-void CompilationContext::enableOptimizations(int level) {
-    if (level < 0) {
-        level = 0; // Ensure optimization level is not negative
-    }
-    else if (level > 3) {
-        level = 3; // Cap optimization level at 3 (assuming this is the maximum)
-    }
-
-    optimizationsEnabled = (level > 0);
-    optimizationLevel = level;
-}
-
-void CompilationContext::enableDebugInfo() {
-    debugInfoEnabled = true;
-}
+} // namespace compiler
