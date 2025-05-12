@@ -1,0 +1,23 @@
+{
+    "cmake.configureOnOpen": true,
+    "cmake.configurePreset": "mingw64-debug",
+    "cmake.buildPreset": "mingw64-debug",
+    "cmake.defaultVariants": {
+        "buildType": {
+            "default": "debug",
+            "description": "The build type.",
+            "choices": {
+                "debug": {
+                    "short": "Debug",
+                    "long": "Disable optimizations - include debug information.",
+                    "buildType": "Debug"
+                },
+                "release": {
+                    "short": "Release",
+                    "long": "Optimize for speed - exclude debug information.",
+                    "buildType": "Release"
+                }
+            }
+        }
+    }
+} 
