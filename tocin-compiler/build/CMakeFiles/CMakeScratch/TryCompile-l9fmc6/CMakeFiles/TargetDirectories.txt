@@ -1,3 +1,0 @@
-C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6/CMakeFiles/cmTC_9a108.dir
-C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6/CMakeFiles/edit_cache.dir
-C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6/CMakeFiles/rebuild_cache.dir

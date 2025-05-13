@@ -701,3 +701,41 @@ events:
         mingw32-make.exe: *** [Makefile:133: cmTC_1fd1a/fast] Error 2
         
       exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/msys64/mingw64/share/cmake/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/msys64/mingw64/share/cmake/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "C:/msys64/mingw64/share/cmake/Modules/FindThreads.cmake:97 (check_c_source_compiles)"
+      - "C:/msys64/mingw64/share/cmake/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "CMakeLists.txt:200 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6"
+      binary: "C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "C:/msys64/mingw64/lib/cmake/llvm"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6'
+        
+        Run Build Command(s): C:/msys64/mingw64/bin/cmake.exe -E env VERBOSE=1 C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe -f Makefile cmTC_9a108/fast
+        C:/PROGRA~1/CODEBL~1/MinGW/bin/mingw32-make.exe  -f CMakeFiles\\cmTC_9a108.dir\\build.make CMakeFiles/cmTC_9a108.dir/build
+        mingw32-make.exe[1]: Entering directory 'C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6'
+        Building C object CMakeFiles/cmTC_9a108.dir/src.c.obj
+        C:\\msys64\\mingw64\\bin\\cc.exe -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles\\cmTC_9a108.dir\\src.c.obj -c "C:\\Users\\Afolabi Oluwatoisn A\\Downloads\\tocin-compiler\\tocin-compiler\\build\\CMakeFiles\\CMakeScratch\\TryCompile-l9fmc6\\src.c"
+        Linking C executable cmTC_9a108.exe
+        C:\\msys64\\mingw64\\bin\\cmake.exe -E cmake_link_script CMakeFiles\\cmTC_9a108.dir\\link.txt --verbose=1
+        C:\\msys64\\mingw64\\bin\\cmake.exe -E rm -f CMakeFiles\\cmTC_9a108.dir/objects.a
+        C:\\msys64\\mingw64\\bin\\ar.exe qc CMakeFiles\\cmTC_9a108.dir/objects.a @CMakeFiles\\cmTC_9a108.dir\\objects1.rsp
+        C:\\msys64\\mingw64\\bin\\cc.exe -Wl,--whole-archive CMakeFiles\\cmTC_9a108.dir/objects.a -Wl,--no-whole-archive -o cmTC_9a108.exe -Wl,--out-implib,libcmTC_9a108.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\\cmTC_9a108.dir\\linkLibs.rsp
+        mingw32-make.exe[1]: Leaving directory 'C:/Users/Afolabi Oluwatoisn A/Downloads/tocin-compiler/tocin-compiler/build/CMakeFiles/CMakeScratch/TryCompile-l9fmc6'
+        
+      exitCode: 0
+...
