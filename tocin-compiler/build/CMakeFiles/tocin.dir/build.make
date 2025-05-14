@@ -74,101 +74,56 @@ include CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/codegen:
 .PHONY : CMakeFiles/tocin.dir/codegen
 
-CMakeFiles/tocin.dir/src/main.cpp.obj: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/main.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
-CMakeFiles/tocin.dir/src/main.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/main.cpp
-CMakeFiles/tocin.dir/src/main.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tocin.dir/src/main.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/main.cpp.obj -MF CMakeFiles\tocin.dir\src\main.cpp.obj.d -o CMakeFiles\tocin.dir\src\main.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\main.cpp"
+CMakeFiles/tocin.dir/src/ast/ast.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/ast/ast.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/ast/ast.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/ast/ast.cpp
+CMakeFiles/tocin.dir/src/ast/ast.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/tocin.dir/src/ast/ast.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ast/ast.cpp.obj -MF CMakeFiles\tocin.dir\src\ast\ast.cpp.obj.d -o CMakeFiles\tocin.dir\src\ast\ast.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\ast.cpp"
 
-CMakeFiles/tocin.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/main.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\main.cpp" > CMakeFiles\tocin.dir\src\main.cpp.i
+CMakeFiles/tocin.dir/src/ast/ast.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/ast/ast.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\ast.cpp" > CMakeFiles\tocin.dir\src\ast\ast.cpp.i
 
-CMakeFiles/tocin.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/main.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\main.cpp" -o CMakeFiles\tocin.dir\src\main.cpp.s
+CMakeFiles/tocin.dir/src/ast/ast.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ast/ast.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\ast.cpp" -o CMakeFiles\tocin.dir\src\ast\ast.cpp.s
 
-CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
-CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/lexer/lexer.cpp
-CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj -MF CMakeFiles\tocin.dir\src\lexer\lexer.cpp.obj.d -o CMakeFiles\tocin.dir\src\lexer\lexer.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\lexer.cpp"
+CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/ast/match_stmt.cpp
+CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj -MF CMakeFiles\tocin.dir\src\ast\match_stmt.cpp.obj.d -o CMakeFiles\tocin.dir\src\ast\match_stmt.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\match_stmt.cpp"
 
-CMakeFiles/tocin.dir/src/lexer/lexer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/lexer/lexer.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\lexer.cpp" > CMakeFiles\tocin.dir\src\lexer\lexer.cpp.i
+CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\match_stmt.cpp" > CMakeFiles\tocin.dir\src\ast\match_stmt.cpp.i
 
-CMakeFiles/tocin.dir/src/lexer/lexer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/lexer/lexer.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\lexer.cpp" -o CMakeFiles\tocin.dir\src\lexer\lexer.cpp.s
+CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\match_stmt.cpp" -o CMakeFiles\tocin.dir\src\ast\match_stmt.cpp.s
 
-CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
-CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/lexer/token.cpp
-CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tocin.dir/src/lexer/token.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/lexer/token.cpp.obj -MF CMakeFiles\tocin.dir\src\lexer\token.cpp.obj.d -o CMakeFiles\tocin.dir\src\lexer\token.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\token.cpp"
+CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/ast/option_result_expr.cpp
+CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj -MF CMakeFiles\tocin.dir\src\ast\option_result_expr.cpp.obj.d -o CMakeFiles\tocin.dir\src\ast\option_result_expr.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\option_result_expr.cpp"
 
-CMakeFiles/tocin.dir/src/lexer/token.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/lexer/token.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\token.cpp" > CMakeFiles\tocin.dir\src\lexer\token.cpp.i
+CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\option_result_expr.cpp" > CMakeFiles\tocin.dir\src\ast\option_result_expr.cpp.i
 
-CMakeFiles/tocin.dir/src/lexer/token.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/lexer/token.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\token.cpp" -o CMakeFiles\tocin.dir\src\lexer\token.cpp.s
-
-CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
-CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/parser/parser.cpp
-CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tocin.dir/src/parser/parser.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/parser/parser.cpp.obj -MF CMakeFiles\tocin.dir\src\parser\parser.cpp.obj.d -o CMakeFiles\tocin.dir\src\parser\parser.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\parser\parser.cpp"
-
-CMakeFiles/tocin.dir/src/parser/parser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/parser/parser.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\parser\parser.cpp" > CMakeFiles\tocin.dir\src\parser\parser.cpp.i
-
-CMakeFiles/tocin.dir/src/parser/parser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/parser/parser.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\parser\parser.cpp" -o CMakeFiles\tocin.dir\src\parser\parser.cpp.s
-
-CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
-CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/error/error_handler.cpp
-CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj -MF CMakeFiles\tocin.dir\src\error\error_handler.cpp.obj.d -o CMakeFiles\tocin.dir\src\error\error_handler.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\error\error_handler.cpp"
-
-CMakeFiles/tocin.dir/src/error/error_handler.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/error/error_handler.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\error\error_handler.cpp" > CMakeFiles\tocin.dir\src\error\error_handler.cpp.i
-
-CMakeFiles/tocin.dir/src/error/error_handler.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/error/error_handler.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\error\error_handler.cpp" -o CMakeFiles\tocin.dir\src\error\error_handler.cpp.s
-
-CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
-CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/type/type_checker.cpp
-CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj -MF CMakeFiles\tocin.dir\src\type\type_checker.cpp.obj.d -o CMakeFiles\tocin.dir\src\type\type_checker.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\type_checker.cpp"
-
-CMakeFiles/tocin.dir/src/type/type_checker.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/type/type_checker.cpp.i"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\type_checker.cpp" > CMakeFiles\tocin.dir\src\type\type_checker.cpp.i
-
-CMakeFiles/tocin.dir/src/type/type_checker.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/type/type_checker.cpp.s"
-	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\type_checker.cpp" -o CMakeFiles\tocin.dir\src\type\type_checker.cpp.s
+CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ast\option_result_expr.cpp" -o CMakeFiles\tocin.dir\src\ast\option_result_expr.cpp.s
 
 CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/codegen/ir_generator.cpp
 CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj -MF CMakeFiles\tocin.dir\src\codegen\ir_generator.cpp.obj.d -o CMakeFiles\tocin.dir\src\codegen\ir_generator.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\codegen\ir_generator.cpp"
 
 CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.i: cmake_force
@@ -183,7 +138,7 @@ CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj: CMakeFiles/tocin.
 CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/compiler/compilation_context.cpp
 CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj -MF CMakeFiles\tocin.dir\src\compiler\compilation_context.cpp.obj.d -o CMakeFiles\tocin.dir\src\compiler\compilation_context.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\compiler\compilation_context.cpp"
 
 CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.i: cmake_force
@@ -198,7 +153,7 @@ CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj: CMakeFiles/tocin.dir/flags.m
 CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/compiler/compiler.cpp
 CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj -MF CMakeFiles\tocin.dir\src\compiler\compiler.cpp.obj.d -o CMakeFiles\tocin.dir\src\compiler\compiler.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\compiler\compiler.cpp"
 
 CMakeFiles/tocin.dir/src/compiler/compiler.cpp.i: cmake_force
@@ -213,7 +168,7 @@ CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj: CMakeFiles/tocin.dir/flags.mak
 CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/compiler/stdlib.cpp
 CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj -MF CMakeFiles\tocin.dir\src\compiler\stdlib.cpp.obj.d -o CMakeFiles\tocin.dir\src\compiler\stdlib.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\compiler\stdlib.cpp"
 
 CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.i: cmake_force
@@ -224,11 +179,26 @@ CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.s"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\compiler\stdlib.cpp" -o CMakeFiles\tocin.dir\src\compiler\stdlib.cpp.s
 
+CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/error/error_handler.cpp
+CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj -MF CMakeFiles\tocin.dir\src\error\error_handler.cpp.obj.d -o CMakeFiles\tocin.dir\src\error\error_handler.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\error\error_handler.cpp"
+
+CMakeFiles/tocin.dir/src/error/error_handler.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/error/error_handler.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\error\error_handler.cpp" > CMakeFiles\tocin.dir\src\error\error_handler.cpp.i
+
+CMakeFiles/tocin.dir/src/error/error_handler.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/error/error_handler.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\error\error_handler.cpp" -o CMakeFiles\tocin.dir\src\error\error_handler.cpp.s
+
 CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/ffi/ffi_cpp.cpp
 CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj -MF CMakeFiles\tocin.dir\src\ffi\ffi_cpp.cpp.obj.d -o CMakeFiles\tocin.dir\src\ffi\ffi_cpp.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ffi\ffi_cpp.cpp"
 
 CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.i: cmake_force
@@ -243,7 +213,7 @@ CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj: CMakeFiles/tocin.dir/flags.
 CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/ffi/ffi_javascript.cpp
 CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj -MF CMakeFiles\tocin.dir\src\ffi\ffi_javascript.cpp.obj.d -o CMakeFiles\tocin.dir\src\ffi\ffi_javascript.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ffi\ffi_javascript.cpp"
 
 CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.i: cmake_force
@@ -258,7 +228,7 @@ CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
 CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/ffi/ffi_python.cpp
 CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj -MF CMakeFiles\tocin.dir\src\ffi\ffi_python.cpp.obj.d -o CMakeFiles\tocin.dir\src\ffi\ffi_python.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ffi\ffi_python.cpp"
 
 CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.i: cmake_force
@@ -269,132 +239,197 @@ CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.s"
 	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\ffi\ffi_python.cpp" -o CMakeFiles\tocin.dir\src\ffi\ffi_python.cpp.s
 
+CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/lexer/lexer.cpp
+CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj -MF CMakeFiles\tocin.dir\src\lexer\lexer.cpp.obj.d -o CMakeFiles\tocin.dir\src\lexer\lexer.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\lexer.cpp"
+
+CMakeFiles/tocin.dir/src/lexer/lexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/lexer/lexer.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\lexer.cpp" > CMakeFiles\tocin.dir\src\lexer\lexer.cpp.i
+
+CMakeFiles/tocin.dir/src/lexer/lexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/lexer/lexer.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\lexer.cpp" -o CMakeFiles\tocin.dir\src\lexer\lexer.cpp.s
+
+CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/lexer/token.cpp
+CMakeFiles/tocin.dir/src/lexer/token.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tocin.dir/src/lexer/token.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/lexer/token.cpp.obj -MF CMakeFiles\tocin.dir\src\lexer\token.cpp.obj.d -o CMakeFiles\tocin.dir\src\lexer\token.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\token.cpp"
+
+CMakeFiles/tocin.dir/src/lexer/token.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/lexer/token.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\token.cpp" > CMakeFiles\tocin.dir\src\lexer\token.cpp.i
+
+CMakeFiles/tocin.dir/src/lexer/token.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/lexer/token.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\lexer\token.cpp" -o CMakeFiles\tocin.dir\src\lexer\token.cpp.s
+
+CMakeFiles/tocin.dir/src/main.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/main.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/main.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/main.cpp
+CMakeFiles/tocin.dir/src/main.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tocin.dir/src/main.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/main.cpp.obj -MF CMakeFiles\tocin.dir\src\main.cpp.obj.d -o CMakeFiles\tocin.dir\src\main.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\main.cpp"
+
+CMakeFiles/tocin.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/main.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\main.cpp" > CMakeFiles\tocin.dir\src\main.cpp.i
+
+CMakeFiles/tocin.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/main.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\main.cpp" -o CMakeFiles\tocin.dir\src\main.cpp.s
+
+CMakeFiles/tocin.dir/src/minimal_test.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/minimal_test.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/minimal_test.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/minimal_test.cpp
+CMakeFiles/tocin.dir/src/minimal_test.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tocin.dir/src/minimal_test.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/minimal_test.cpp.obj -MF CMakeFiles\tocin.dir\src\minimal_test.cpp.obj.d -o CMakeFiles\tocin.dir\src\minimal_test.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\minimal_test.cpp"
+
+CMakeFiles/tocin.dir/src/minimal_test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/minimal_test.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\minimal_test.cpp" > CMakeFiles\tocin.dir\src\minimal_test.cpp.i
+
+CMakeFiles/tocin.dir/src/minimal_test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/minimal_test.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\minimal_test.cpp" -o CMakeFiles\tocin.dir\src\minimal_test.cpp.s
+
+CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/parser/parser.cpp
+CMakeFiles/tocin.dir/src/parser/parser.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tocin.dir/src/parser/parser.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/parser/parser.cpp.obj -MF CMakeFiles\tocin.dir\src\parser\parser.cpp.obj.d -o CMakeFiles\tocin.dir\src\parser\parser.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\parser\parser.cpp"
+
+CMakeFiles/tocin.dir/src/parser/parser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/parser/parser.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\parser\parser.cpp" > CMakeFiles\tocin.dir\src\parser\parser.cpp.i
+
+CMakeFiles/tocin.dir/src/parser/parser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/parser/parser.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\parser\parser.cpp" -o CMakeFiles\tocin.dir\src\parser\parser.cpp.s
+
+CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/runtime/native_functions.cpp
+CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj -MF CMakeFiles\tocin.dir\src\runtime\native_functions.cpp.obj.d -o CMakeFiles\tocin.dir\src\runtime\native_functions.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\runtime\native_functions.cpp"
+
+CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\runtime\native_functions.cpp" > CMakeFiles\tocin.dir\src\runtime\native_functions.cpp.i
+
+CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\runtime\native_functions.cpp" -o CMakeFiles\tocin.dir\src\runtime\native_functions.cpp.s
+
+CMakeFiles/tocin.dir/src/test.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/test.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/test.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/test.cpp
+CMakeFiles/tocin.dir/src/test.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tocin.dir/src/test.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/test.cpp.obj -MF CMakeFiles\tocin.dir\src\test.cpp.obj.d -o CMakeFiles\tocin.dir\src\test.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\test.cpp"
+
+CMakeFiles/tocin.dir/src/test.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/test.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\test.cpp" > CMakeFiles\tocin.dir\src\test.cpp.i
+
+CMakeFiles/tocin.dir/src/test.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/test.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\test.cpp" -o CMakeFiles\tocin.dir\src\test.cpp.s
+
+CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/type/option_result_types.cpp
+CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj -MF CMakeFiles\tocin.dir\src\type\option_result_types.cpp.obj.d -o CMakeFiles\tocin.dir\src\type\option_result_types.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\option_result_types.cpp"
+
+CMakeFiles/tocin.dir/src/type/option_result_types.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/type/option_result_types.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\option_result_types.cpp" > CMakeFiles\tocin.dir\src\type\option_result_types.cpp.i
+
+CMakeFiles/tocin.dir/src/type/option_result_types.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/type/option_result_types.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\option_result_types.cpp" -o CMakeFiles\tocin.dir\src\type\option_result_types.cpp.s
+
+CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: CMakeFiles/tocin.dir/flags.make
+CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: CMakeFiles/tocin.dir/includes_CXX.rsp
+CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: C:/Users/Afolabi\ Oluwatoisn\ A/Downloads/tocin-compiler/tocin-compiler/src/type/type_checker.cpp
+CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj: CMakeFiles/tocin.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj -MF CMakeFiles\tocin.dir\src\type\type_checker.cpp.obj.d -o CMakeFiles\tocin.dir\src\type\type_checker.cpp.obj -c "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\type_checker.cpp"
+
+CMakeFiles/tocin.dir/src/type/type_checker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/type/type_checker.cpp.i"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\type_checker.cpp" > CMakeFiles\tocin.dir\src\type\type_checker.cpp.i
+
+CMakeFiles/tocin.dir/src/type/type_checker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/type/type_checker.cpp.s"
+	C:\msys64\mingw64\bin\c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\src\type\type_checker.cpp" -o CMakeFiles\tocin.dir\src\type\type_checker.cpp.s
+
 # Object files for target tocin
 tocin_OBJECTS = \
-"CMakeFiles/tocin.dir/src/main.cpp.obj" \
-"CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj" \
-"CMakeFiles/tocin.dir/src/lexer/token.cpp.obj" \
-"CMakeFiles/tocin.dir/src/parser/parser.cpp.obj" \
-"CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj" \
-"CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj" \
+"CMakeFiles/tocin.dir/src/ast/ast.cpp.obj" \
+"CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj" \
+"CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj" \
 "CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj" \
 "CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj" \
 "CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj" \
 "CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj" \
+"CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj" \
 "CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj" \
 "CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj" \
-"CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj"
+"CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj" \
+"CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj" \
+"CMakeFiles/tocin.dir/src/lexer/token.cpp.obj" \
+"CMakeFiles/tocin.dir/src/main.cpp.obj" \
+"CMakeFiles/tocin.dir/src/minimal_test.cpp.obj" \
+"CMakeFiles/tocin.dir/src/parser/parser.cpp.obj" \
+"CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj" \
+"CMakeFiles/tocin.dir/src/test.cpp.obj" \
+"CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj" \
+"CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj"
 
 # External object files for target tocin
 tocin_EXTERNAL_OBJECTS =
 
-tocin.exe: CMakeFiles/tocin.dir/src/main.cpp.obj
-tocin.exe: CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj
-tocin.exe: CMakeFiles/tocin.dir/src/lexer/token.cpp.obj
-tocin.exe: CMakeFiles/tocin.dir/src/parser/parser.cpp.obj
-tocin.exe: CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj
-tocin.exe: CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/ast/ast.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/codegen/ir_generator.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/compiler/compilation_context.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/compiler/compiler.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/error/error_handler.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/lexer/lexer.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/lexer/token.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/main.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/minimal_test.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/parser/parser.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/test.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj
+tocin.exe: CMakeFiles/tocin.dir/src/type/type_checker.cpp.obj
 tocin.exe: CMakeFiles/tocin.dir/build.make
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCore.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMSupport.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMIRReader.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCodeGen.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMMC.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMMCParser.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMPasses.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMTarget.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86CodeGen.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86AsmParser.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86Desc.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86Info.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMAsmPrinter.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMAnalysis.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMTransformUtils.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMInstCombine.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMScalarOpts.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMExecutionEngine.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMMCJIT.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMOrcJIT.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMRuntimeDyld.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86CodeGen.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86AsmParser.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86Desc.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86Disassembler.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMX86Info.a
 tocin.exe: C:/msys64/mingw64/lib/libz.dll.a
 tocin.exe: C:/Users/Afolabi\ Oluwatoisn\ A/AppData/Local/Programs/Python/Python312/libs/python312.lib
 tocin.exe: C:/msys64/mingw64/lib/libv8.dll.a
 tocin.exe: C:/msys64/mingw64/lib/libv8_libplatform.dll.a
 tocin.exe: C:/msys64/mingw64/lib/libv8_libbase.dll.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMAsmPrinter.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMGlobalISel.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMSelectionDAG.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMPasses.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCodeGen.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCGData.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCodeGenTypes.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMObjCARCOpts.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCFGuard.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCoroutines.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMHipStdPar.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMipo.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMFrontendOpenMP.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMScalarOpts.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMInstCombine.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMAggressiveInstCombine.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMFrontendOffloading.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMFrontendAtomic.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMLinker.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMIRPrinter.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMVectorize.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMSandboxIR.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMInstrumentation.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMTransformUtils.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMExecutionEngine.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMTarget.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMRuntimeDyld.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMBitWriter.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMAnalysis.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMProfileData.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMSymbolize.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMDebugInfoDWARF.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMDebugInfoPDB.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMDebugInfoCodeView.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMDebugInfoMSF.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMDebugInfoBTF.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMJITLink.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMObject.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMIRReader.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMAsmParser.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMMCParser.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMBitReader.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMCore.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMRemarks.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMBitstreamReader.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMTextAPI.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMOrcTargetProcess.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMOrcShared.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMWindowsDriver.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMOption.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMMCDisassembler.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMMC.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMBinaryFormat.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMTargetParser.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMSupport.a
-tocin.exe: C:/msys64/mingw64/lib/libLLVMDemangle.a
-tocin.exe: C:/msys64/mingw64/lib/libz.dll.a
-tocin.exe: C:/msys64/mingw64/lib/libzstd.dll.a
 tocin.exe: CMakeFiles/tocin.dir/linkLibs.rsp
 tocin.exe: CMakeFiles/tocin.dir/objects1.rsp
 tocin.exe: CMakeFiles/tocin.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable tocin.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="C:\Users\Afolabi Oluwatoisn A\Downloads\tocin-compiler\tocin-compiler\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_21) "Linking CXX executable tocin.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\tocin.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

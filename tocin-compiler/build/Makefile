@@ -287,6 +287,91 @@ tocin/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/build
 .PHONY : tocin/fast
 
+#=============================================================================
+# Target rules for targets named ir_generator_direct
+
+# Build rule for target.
+ir_generator_direct: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ir_generator_direct
+.PHONY : ir_generator_direct
+
+# fast build rule for target.
+ir_generator_direct/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ir_generator_direct.dir\build.make CMakeFiles/ir_generator_direct.dir/build
+.PHONY : ir_generator_direct/fast
+
+src/ast/ast.obj: src/ast/ast.cpp.obj
+.PHONY : src/ast/ast.obj
+
+# target to build an object file
+src/ast/ast.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/ast.cpp.obj
+.PHONY : src/ast/ast.cpp.obj
+
+src/ast/ast.i: src/ast/ast.cpp.i
+.PHONY : src/ast/ast.i
+
+# target to preprocess a source file
+src/ast/ast.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/ast.cpp.i
+.PHONY : src/ast/ast.cpp.i
+
+src/ast/ast.s: src/ast/ast.cpp.s
+.PHONY : src/ast/ast.s
+
+# target to generate assembly for a file
+src/ast/ast.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/ast.cpp.s
+.PHONY : src/ast/ast.cpp.s
+
+src/ast/match_stmt.obj: src/ast/match_stmt.cpp.obj
+.PHONY : src/ast/match_stmt.obj
+
+# target to build an object file
+src/ast/match_stmt.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.obj
+.PHONY : src/ast/match_stmt.cpp.obj
+
+src/ast/match_stmt.i: src/ast/match_stmt.cpp.i
+.PHONY : src/ast/match_stmt.i
+
+# target to preprocess a source file
+src/ast/match_stmt.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.i
+.PHONY : src/ast/match_stmt.cpp.i
+
+src/ast/match_stmt.s: src/ast/match_stmt.cpp.s
+.PHONY : src/ast/match_stmt.s
+
+# target to generate assembly for a file
+src/ast/match_stmt.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/match_stmt.cpp.s
+.PHONY : src/ast/match_stmt.cpp.s
+
+src/ast/option_result_expr.obj: src/ast/option_result_expr.cpp.obj
+.PHONY : src/ast/option_result_expr.obj
+
+# target to build an object file
+src/ast/option_result_expr.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.obj
+.PHONY : src/ast/option_result_expr.cpp.obj
+
+src/ast/option_result_expr.i: src/ast/option_result_expr.cpp.i
+.PHONY : src/ast/option_result_expr.i
+
+# target to preprocess a source file
+src/ast/option_result_expr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.i
+.PHONY : src/ast/option_result_expr.cpp.i
+
+src/ast/option_result_expr.s: src/ast/option_result_expr.cpp.s
+.PHONY : src/ast/option_result_expr.s
+
+# target to generate assembly for a file
+src/ast/option_result_expr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/ast/option_result_expr.cpp.s
+.PHONY : src/ast/option_result_expr.cpp.s
+
 src/codegen/ir_generator.obj: src/codegen/ir_generator.cpp.obj
 .PHONY : src/codegen/ir_generator.obj
 
@@ -551,6 +636,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/minimal_test.obj: src/minimal_test.cpp.obj
+.PHONY : src/minimal_test.obj
+
+# target to build an object file
+src/minimal_test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/minimal_test.cpp.obj
+.PHONY : src/minimal_test.cpp.obj
+
+src/minimal_test.i: src/minimal_test.cpp.i
+.PHONY : src/minimal_test.i
+
+# target to preprocess a source file
+src/minimal_test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/minimal_test.cpp.i
+.PHONY : src/minimal_test.cpp.i
+
+src/minimal_test.s: src/minimal_test.cpp.s
+.PHONY : src/minimal_test.s
+
+# target to generate assembly for a file
+src/minimal_test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/minimal_test.cpp.s
+.PHONY : src/minimal_test.cpp.s
+
 src/parser/parser.obj: src/parser/parser.cpp.obj
 .PHONY : src/parser/parser.obj
 
@@ -574,6 +683,78 @@ src/parser/parser.s: src/parser/parser.cpp.s
 src/parser/parser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/parser/parser.cpp.s
 .PHONY : src/parser/parser.cpp.s
+
+src/runtime/native_functions.obj: src/runtime/native_functions.cpp.obj
+.PHONY : src/runtime/native_functions.obj
+
+# target to build an object file
+src/runtime/native_functions.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.obj
+.PHONY : src/runtime/native_functions.cpp.obj
+
+src/runtime/native_functions.i: src/runtime/native_functions.cpp.i
+.PHONY : src/runtime/native_functions.i
+
+# target to preprocess a source file
+src/runtime/native_functions.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.i
+.PHONY : src/runtime/native_functions.cpp.i
+
+src/runtime/native_functions.s: src/runtime/native_functions.cpp.s
+.PHONY : src/runtime/native_functions.s
+
+# target to generate assembly for a file
+src/runtime/native_functions.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.s
+.PHONY : src/runtime/native_functions.cpp.s
+
+src/test.obj: src/test.cpp.obj
+.PHONY : src/test.obj
+
+# target to build an object file
+src/test.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/test.cpp.obj
+.PHONY : src/test.cpp.obj
+
+src/test.i: src/test.cpp.i
+.PHONY : src/test.i
+
+# target to preprocess a source file
+src/test.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/test.cpp.i
+.PHONY : src/test.cpp.i
+
+src/test.s: src/test.cpp.s
+.PHONY : src/test.s
+
+# target to generate assembly for a file
+src/test.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/test.cpp.s
+.PHONY : src/test.cpp.s
+
+src/type/option_result_types.obj: src/type/option_result_types.cpp.obj
+.PHONY : src/type/option_result_types.obj
+
+# target to build an object file
+src/type/option_result_types.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/type/option_result_types.cpp.obj
+.PHONY : src/type/option_result_types.cpp.obj
+
+src/type/option_result_types.i: src/type/option_result_types.cpp.i
+.PHONY : src/type/option_result_types.i
+
+# target to preprocess a source file
+src/type/option_result_types.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/type/option_result_types.cpp.i
+.PHONY : src/type/option_result_types.cpp.i
+
+src/type/option_result_types.s: src/type/option_result_types.cpp.s
+.PHONY : src/type/option_result_types.s
+
+# target to generate assembly for a file
+src/type/option_result_types.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\tocin.dir\build.make CMakeFiles/tocin.dir/src/type/option_result_types.cpp.s
+.PHONY : src/type/option_result_types.cpp.s
 
 src/type/type_checker.obj: src/type/type_checker.cpp.obj
 .PHONY : src/type/type_checker.obj
@@ -618,9 +799,19 @@ help:
 	@echo ... RISCVTargetParserTableGen
 	@echo ... acc_gen
 	@echo ... intrinsics_gen
+	@echo ... ir_generator_direct
 	@echo ... omp_gen
 	@echo ... vt_gen
 	@echo ... tocin
+	@echo ... src/ast/ast.obj
+	@echo ... src/ast/ast.i
+	@echo ... src/ast/ast.s
+	@echo ... src/ast/match_stmt.obj
+	@echo ... src/ast/match_stmt.i
+	@echo ... src/ast/match_stmt.s
+	@echo ... src/ast/option_result_expr.obj
+	@echo ... src/ast/option_result_expr.i
+	@echo ... src/ast/option_result_expr.s
 	@echo ... src/codegen/ir_generator.obj
 	@echo ... src/codegen/ir_generator.i
 	@echo ... src/codegen/ir_generator.s
@@ -654,9 +845,21 @@ help:
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
+	@echo ... src/minimal_test.obj
+	@echo ... src/minimal_test.i
+	@echo ... src/minimal_test.s
 	@echo ... src/parser/parser.obj
 	@echo ... src/parser/parser.i
 	@echo ... src/parser/parser.s
+	@echo ... src/runtime/native_functions.obj
+	@echo ... src/runtime/native_functions.i
+	@echo ... src/runtime/native_functions.s
+	@echo ... src/test.obj
+	@echo ... src/test.i
+	@echo ... src/test.s
+	@echo ... src/type/option_result_types.obj
+	@echo ... src/type/option_result_types.i
+	@echo ... src/type/option_result_types.s
 	@echo ... src/type/type_checker.obj
 	@echo ... src/type/type_checker.i
 	@echo ... src/type/type_checker.s
