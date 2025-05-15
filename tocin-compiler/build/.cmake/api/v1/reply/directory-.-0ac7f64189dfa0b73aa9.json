@@ -1,0 +1,219 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 387,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 390,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 402,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 408,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 415,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 419,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 440,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 445,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 452,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 463,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 469,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"tocin.exe"
+			],
+			"targetId" : "tocin::@6890427a1f51a3e7e1df",
+			"targetIndex" : 7,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 1,
+			"component" : "Applications",
+			"cxxModuleBmiTarget" : 
+			{
+				"id" : "tocin::@6890427a1f51a3e7e1df",
+				"index" : 7
+			},
+			"destination" : "bin",
+			"type" : "cxxModuleBmi"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libwinpthread-1.dll",
+				"C:/msys64/mingw64/bin/libstdc++-6.dll",
+				"C:/msys64/mingw64/bin/libgcc_s_seh-1.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 3,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/Users/Afolabi Oluwatoisn A/AppData/Local/Programs/Python/Python312/python3.dll",
+				"C:/Users/Afolabi Oluwatoisn A/AppData/Local/Programs/Python/Python312/python312.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libv8.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libv8_libbase.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 6,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libv8_libplatform.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 7,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libzlib.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 8,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libzstd.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 9,
+			"component" : "Applications",
+			"destination" : "bin",
+			"paths" : 
+			[
+				"C:/msys64/mingw64/bin/libxml2-2.dll"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 10,
+			"component" : "Documentation",
+			"destination" : "doc",
+			"paths" : 
+			[
+				"README.md"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 11,
+			"component" : "Examples",
+			"destination" : ".",
+			"paths" : 
+			[
+				"examples"
+			],
+			"type" : "directory"
+		}
+	],
+	"paths" : 
+	{
+		"build" : ".",
+		"source" : "."
+	}
+}
