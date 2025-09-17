@@ -178,6 +178,7 @@ private:
 /**
  * @brief Node.js integration wrapper
  */
+// Duplicate of declarations in js_ffi.h; keep only one definition
 class NodeJSIntegration {
 public:
     NodeJSIntegration(JavaScriptFFIImpl* ffi);
@@ -225,6 +226,7 @@ private:
 /**
  * @brief Browser JavaScript integration wrapper
  */
+// Duplicate of declarations in js_ffi.h; keep only one definition
 class BrowserJSIntegration {
 public:
     BrowserJSIntegration(JavaScriptFFIImpl* ffi);

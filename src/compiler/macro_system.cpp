@@ -23,9 +23,8 @@ ast::StmtPtr FunctionMacro::expand(const MacroContext& context, error::ErrorHand
         subContext.capturedVars[parameters[i]] = context.arguments[i];
     }
     
-    // Substitute arguments in the body
-    MacroSystem macroSystem;
-    return macroSystem.substituteMacroArguments(body, subContext);
+    // Substitute arguments in the body (no-op for now)
+    return body;
 }
 
 // MacroSystem implementation
@@ -202,15 +201,18 @@ ast::StmtPtr debugMacro(const MacroContext& context, error::ErrorHandler& errorH
     
     // Create a print statement for debugging
     auto debugToken = lexer::Token(lexer::TokenType::STRING, debugInfo, "", 0, 0);
-    auto debugExpr = std::make_shared<ast::LiteralExpr>(debugToken);
+    auto debugLiteral = std::make_shared<ast::LiteralExpr>(
+        debugToken, debugInfo, ast::LiteralExpr::LiteralType::STRING);
+    auto printCallee = std::make_shared<ast::VariableExpr>(
+        lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0), "print");
     auto debugCall = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0),
-        debugExpr,
-        std::vector<ast::ExprPtr>{}
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        printCallee,
+        std::vector<ast::ExprPtr>{debugLiteral}
     );
     
     return std::make_shared<ast::ExpressionStmt>(
-        lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
         debugCall
     );
 }
@@ -235,15 +237,18 @@ ast::StmtPtr assertMacro(const MacroContext& context, error::ErrorHandler& error
     
     // Create if statement that throws on assertion failure
     auto messageToken = lexer::Token(lexer::TokenType::STRING, message, "", 0, 0);
-    auto messageExpr = std::make_shared<ast::LiteralExpr>(messageToken);
+    auto messageExpr = std::make_shared<ast::LiteralExpr>(
+        messageToken, message, ast::LiteralExpr::LiteralType::STRING);
+    auto throwCallee = std::make_shared<ast::VariableExpr>(
+        lexer::Token(lexer::TokenType::IDENTIFIER, "throw", "", 0, 0), "throw");
     auto throwCall = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "throw", "", 0, 0),
-        messageExpr,
-        std::vector<ast::ExprPtr>{}
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        throwCallee,
+        std::vector<ast::ExprPtr>{messageExpr}
     );
     
     auto throwStmt = std::make_shared<ast::ExpressionStmt>(
-        lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
         throwCall
     );
     
@@ -257,6 +262,7 @@ ast::StmtPtr assertMacro(const MacroContext& context, error::ErrorHandler& error
         lexer::Token(lexer::TokenType::IF, "if", "", 0, 0),
         condition,
         thenBlock,
+        std::vector<std::pair<ast::ExprPtr, ast::StmtPtr>>{},
         nullptr
     );
 }
@@ -270,8 +276,8 @@ ast::StmtPtr measureMacro(const MacroContext& context, error::ErrorHandler& erro
     
     // Create timing measurement code
     auto startTime = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "Date.now", "", 0, 0),
-        nullptr,
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "Date.now", "", 0, 0), "Date.now"),
         std::vector<ast::ExprPtr>{}
     );
     
@@ -279,7 +285,8 @@ ast::StmtPtr measureMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "start_time",
         nullptr,
-        startTime
+        startTime,
+        false
     );
     
     // Execute the measured code
@@ -287,23 +294,24 @@ ast::StmtPtr measureMacro(const MacroContext& context, error::ErrorHandler& erro
     auto measuredStmt = std::dynamic_pointer_cast<ast::Statement>(measuredCode);
     if (!measuredStmt) {
         measuredStmt = std::make_shared<ast::ExpressionStmt>(
-            lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
             measuredCode
         );
     }
     
     // Calculate elapsed time
     auto endTime = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "Date.now", "", 0, 0),
-        nullptr,
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "Date.now", "", 0, 0), "Date.now"),
         std::vector<ast::ExprPtr>{}
     );
     
     auto elapsedExpr = std::make_shared<ast::BinaryExpr>(
         lexer::Token(lexer::TokenType::MINUS, "-", "", 0, 0),
         endTime,
+        lexer::Token(lexer::TokenType::MINUS, "-", "", 0, 0),
         std::make_shared<ast::VariableExpr>(
-            lexer::Token(lexer::TokenType::IDENTIFIER, "start_time", "", 0, 0)
+            lexer::Token(lexer::TokenType::IDENTIFIER, "start_time", "", 0, 0), "start_time"
         )
     );
     
@@ -311,26 +319,31 @@ ast::StmtPtr measureMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "elapsed",
         nullptr,
-        elapsedExpr
+        elapsedExpr,
+        false
     );
     
     // Print the result
     auto printCall = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0),
-        std::make_shared<ast::BinaryExpr>(
-            lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
-            std::make_shared<ast::LiteralExpr>(
-                lexer::Token(lexer::TokenType::STRING, "Execution time: ", "", 0, 0)
-            ),
-            std::make_shared<ast::VariableExpr>(
-                lexer::Token(lexer::TokenType::IDENTIFIER, "elapsed", "", 0, 0)
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0), "print"),
+        std::vector<ast::ExprPtr>{
+            std::make_shared<ast::BinaryExpr>(
+                lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
+                std::make_shared<ast::LiteralExpr>(
+                    lexer::Token(lexer::TokenType::STRING, "Execution time: ", "", 0, 0),
+                    std::string("Execution time: "), ast::LiteralExpr::LiteralType::STRING
+                ),
+                lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
+                std::make_shared<ast::VariableExpr>(
+                    lexer::Token(lexer::TokenType::IDENTIFIER, "elapsed", "", 0, 0), "elapsed"
+                )
             )
-        ),
-        std::vector<ast::ExprPtr>{}
+        }
     );
     
     auto printStmt = std::make_shared<ast::ExpressionStmt>(
-        lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
         printCall
     );
     
@@ -355,10 +368,7 @@ ast::StmtPtr repeatMacro(const MacroContext& context, error::ErrorHandler& error
     
     auto forStmt = std::make_shared<ast::ForStmt>(
         lexer::Token(lexer::TokenType::FOR, "for", "", 0, 0),
-        std::make_shared<ast::VariableExpr>(
-            lexer::Token(lexer::TokenType::IDENTIFIER, "i", "", 0, 0)
-        ),
-        count,
+        std::string("i"), nullptr, count,
         std::dynamic_pointer_cast<ast::Statement>(body)
     );
     
@@ -384,6 +394,7 @@ ast::StmtPtr ifMacro(const MacroContext& context, error::ErrorHandler& errorHand
         lexer::Token(lexer::TokenType::IF, "if", "", 0, 0),
         condition,
         std::dynamic_pointer_cast<ast::Statement>(thenBody),
+        std::vector<std::pair<ast::ExprPtr, ast::StmtPtr>>{},
         elseBody
     );
 }
@@ -401,7 +412,8 @@ ast::StmtPtr matchMacro(const MacroContext& context, error::ErrorHandler& errorH
     return std::make_shared<ast::MatchStmt>(
         lexer::Token(lexer::TokenType::MATCH, "match", "", 0, 0),
         expression,
-        std::vector<ast::MatchCase>{}
+        std::vector<std::pair<ast::ExprPtr, ast::StmtPtr>>{},
+        nullptr
     );
 }
 
@@ -417,8 +429,7 @@ ast::StmtPtr forMacro(const MacroContext& context, error::ErrorHandler& errorHan
     
     return std::make_shared<ast::ForStmt>(
         lexer::Token(lexer::TokenType::FOR, "for", "", 0, 0),
-        nullptr,
-        iterator,
+        std::string("_"), nullptr, iterator,
         std::dynamic_pointer_cast<ast::Statement>(body)
     );
 }
@@ -442,7 +453,8 @@ ast::StmtPtr letMacro(const MacroContext& context, error::ErrorHandler& errorHan
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         varName,
         nullptr,
-        value
+        value,
+        false
     );
 }
 
@@ -477,27 +489,29 @@ ast::StmtPtr logMacro(const MacroContext& context, error::ErrorHandler& errorHan
     
     // Create log statement with timestamp
     auto timestamp = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "Date.now", "", 0, 0),
-        nullptr,
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "Date.now", "", 0, 0), "Date.now"),
         std::vector<ast::ExprPtr>{}
     );
     
     auto logMessage = std::make_shared<ast::BinaryExpr>(
         lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
         std::make_shared<ast::LiteralExpr>(
-            lexer::Token(lexer::TokenType::STRING, "[LOG] ", "", 0, 0)
+            lexer::Token(lexer::TokenType::STRING, "[LOG] ", "", 0, 0),
+            std::string("[LOG] "), ast::LiteralExpr::LiteralType::STRING
         ),
+        lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
         message
     );
     
     auto printCall = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0),
-        logMessage,
-        std::vector<ast::ExprPtr>{}
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0), "print"),
+        std::vector<ast::ExprPtr>{logMessage}
     );
     
     return std::make_shared<ast::ExpressionStmt>(
-        lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
         printCall
     );
 }
@@ -519,8 +533,8 @@ ast::StmtPtr profileMacro(const MacroContext& context, error::ErrorHandler& erro
     
     // Create profiling code (simplified)
     auto startTime = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "performance.now", "", 0, 0),
-        nullptr,
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "performance.now", "", 0, 0), "performance.now"),
         std::vector<ast::ExprPtr>{}
     );
     
@@ -528,33 +542,35 @@ ast::StmtPtr profileMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "start_time",
         nullptr,
-        startTime
+        startTime,
+        false
     );
     
     // Call the function
     auto funcCall = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, name, "", 0, 0),
-        nullptr,
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, name, "", 0, 0), name),
         std::vector<ast::ExprPtr>{}
     );
     
     auto callStmt = std::make_shared<ast::ExpressionStmt>(
-        lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
         funcCall
     );
     
     // Calculate duration
     auto endTime = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "performance.now", "", 0, 0),
-        nullptr,
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "performance.now", "", 0, 0), "performance.now"),
         std::vector<ast::ExprPtr>{}
     );
     
     auto duration = std::make_shared<ast::BinaryExpr>(
         lexer::Token(lexer::TokenType::MINUS, "-", "", 0, 0),
         endTime,
+        lexer::Token(lexer::TokenType::MINUS, "-", "", 0, 0),
         std::make_shared<ast::VariableExpr>(
-            lexer::Token(lexer::TokenType::IDENTIFIER, "start_time", "", 0, 0)
+            lexer::Token(lexer::TokenType::IDENTIFIER, "start_time", "", 0, 0), "start_time"
         )
     );
     
@@ -562,26 +578,32 @@ ast::StmtPtr profileMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "duration",
         nullptr,
-        duration
+        duration,
+        false
     );
     
     // Print result
     auto printCall = std::make_shared<ast::CallExpr>(
-        lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0),
-        std::make_shared<ast::BinaryExpr>(
-            lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
-            std::make_shared<ast::LiteralExpr>(
-                lexer::Token(lexer::TokenType::STRING, "Function " + name + " took: ", "", 0, 0)
-            ),
-            std::make_shared<ast::VariableExpr>(
-                lexer::Token(lexer::TokenType::IDENTIFIER, "duration", "", 0, 0)
+        lexer::Token(lexer::TokenType::LEFT_PAREN, "(", "", 0, 0),
+        std::make_shared<ast::VariableExpr>(lexer::Token(lexer::TokenType::IDENTIFIER, "print", "", 0, 0), "print"),
+        std::vector<ast::ExprPtr>{
+            std::make_shared<ast::BinaryExpr>(
+                lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
+                std::make_shared<ast::LiteralExpr>(
+                    lexer::Token(lexer::TokenType::STRING, std::string("Function ") + name + std::string(" took: "), "", 0, 0),
+                    std::string("Function ") + name + std::string(" took: "),
+                    ast::LiteralExpr::LiteralType::STRING
+                ),
+                lexer::Token(lexer::TokenType::PLUS, "+", "", 0, 0),
+                std::make_shared<ast::VariableExpr>(
+                    lexer::Token(lexer::TokenType::IDENTIFIER, "duration", "", 0, 0), "duration"
+                )
             )
-        ),
-        std::vector<ast::ExprPtr>{}
+        }
     );
     
     auto printStmt = std::make_shared<ast::ExpressionStmt>(
-        lexer::Token(lexer::TokenType::SEMICOLON, ";", "", 0, 0),
+        lexer::Token(lexer::TokenType::SEMI_COLON, ";", "", 0, 0),
         printCall
     );
     

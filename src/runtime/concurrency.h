@@ -30,7 +30,7 @@ class Channel {
 private:
     std::queue<T> buffer;
     size_t capacity;
-    std::mutex mutex;
+    mutable std::mutex mutex;
     std::condition_variable not_full;
     std::condition_variable not_empty;
     std::atomic<bool> closed{false};
@@ -101,7 +101,7 @@ public:
      * @brief Get current buffer size
      */
     size_t size() const {
-        std::unique_lock<std::mutex> lock(mutex);
+        std::lock_guard<std::mutex> lock(mutex);
         return buffer.size();
     }
 };
@@ -343,7 +343,7 @@ private:
 
 public:
     Select(std::tuple<Channels&...> chs, 
-           std::function<void(size_t, typename Channels::value_type)> recv = nullptr,
+           std::function<void(size_t, typename std::tuple_element_t<0, std::tuple<Channels...>>::value_type)> recv = nullptr,
            std::function<void(size_t)> send = nullptr)
         : channels(chs), onReceive(recv), onSend(send) {}
 

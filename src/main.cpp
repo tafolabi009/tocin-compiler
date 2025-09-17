@@ -56,7 +56,7 @@
 #include "ffi/ffi_python.h"
 #endif
 #include "ffi/ffi_cpp.h"
-#include "ffi/ffi_javascript.h"
+// #include "ffi/ffi_javascript.h" // Temporarily disabled to avoid duplicate NodeJS/Browser integration
 
 // Advanced features
 #include "type/option_result_types.h"
@@ -65,8 +65,8 @@
 #include "type/null_safety.h"
 #include "type/move_semantics.h"
 #include "type/extension_functions.h"
-#include "runtime/concurrency.h"
-#include "runtime/linq.h"
+// #include "runtime/concurrency.h" // Temporarily disabled to avoid Promise/Future duplication
+// #include "runtime/linq.h" // Disabled until LINQ header duplication is resolved
 
 /**
  * @brief Enhanced compiler structure with all new features
@@ -122,12 +122,14 @@ public:
                  const CompilationOptions &options = CompilationOptions())
     {
         // Process macros if enabled
+        std::string srcCopy = source;
         if (options.enableMacros) {
-            source = processMacros(source, filename);
+            std::string processed = processMacros(srcCopy, filename);
+            srcCopy = processed;
         }
 
         // Lexical analysis
-        lexer::Lexer lexer(source, filename, 4);
+        lexer::Lexer lexer(srcCopy, filename, 4);
         std::vector<lexer::Token> tokens = lexer.tokenize();
 
         if (errorHandler.hasFatalErrors())
@@ -324,12 +326,12 @@ public:
 
     // Async methods
     template<typename T>
-    runtime::Future<T> createAsync(std::function<T()> func) {
+    runtime::AsyncFuture<T> createAsync(std::function<T()> func) {
         return runtime::AsyncSystem::createAsync(func).execute();
     }
 
     template<typename T>
-    T await(runtime::Future<T>& future) {
+    T await(runtime::AsyncFuture<T>& future) {
         return runtime::AsyncSystem::await(future);
     }
 
