@@ -4468,10 +4468,8 @@ CMakeFiles/tocin.dir/src/main.cpp.o: /workspace/src/main.cpp \
   /workspace/src/ffi/cpp_ffi.h \
   /workspace/src/ffi/ffi_cpp.h \
   /workspace/src/ffi/ffi_interface.h \
-  /workspace/src/ffi/ffi_javascript.h \
   /workspace/src/ffi/ffi_python.h \
   /workspace/src/ffi/ffi_value.h \
-  /workspace/src/ffi/js_ffi.h \
   /workspace/src/ffi/python_ffi.h \
   /workspace/src/lexer/token.h \
   /workspace/src/error/error_handler.h \
@@ -4489,8 +4487,6 @@ CMakeFiles/tocin.dir/src/main.cpp.o: /workspace/src/main.cpp \
   /workspace/src/ast/ast.h \
   /workspace/src/error/error_handler.h \
   /workspace/src/runtime/async_system.h \
-  /workspace/src/runtime/concurrency.h \
-  /workspace/src/runtime/linq.h \
   /workspace/src/ast/ast.h \
   /workspace/src/error/error_handler.h \
   /workspace/src/targets/wasm_target.h \
@@ -5860,8 +5856,6 @@ CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o: /workspace/src/type/opt
 
 /workspace/src/package/package_manager.h:
 
-/workspace/src/ffi/js_ffi.h:
-
 /usr/lib/llvm-20/lib/clang/20/include/__stdarg_va_list.h:
 
 /usr/lib/llvm-20/lib/clang/20/include/__stdarg_va_arg.h:
@@ -6228,8 +6222,6 @@ CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o: /workspace/src/type/opt
 
 /usr/lib/llvm-20/include/llvm/Support/ELFAttributes.h:
 
-/workspace/src/runtime/linq.h:
-
 /usr/lib/llvm-20/include/llvm/Support/CFGUpdate.h:
 
 /usr/lib/llvm-20/include/llvm/Support/CFGDiff.h:
@@ -6237,8 +6229,6 @@ CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o: /workspace/src/type/opt
 /usr/lib/llvm-20/include/llvm/Support/Allocator.h:
 
 /usr/include/c++/14/pstl/glue_algorithm_defs.h:
-
-/workspace/src/ffi/ffi_javascript.h:
 
 /usr/include/math.h:
 

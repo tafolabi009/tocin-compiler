@@ -326,12 +326,12 @@ public:
 
     // Async methods
     template<typename T>
-    runtime::Future<T> createAsync(std::function<T()> func) {
+    runtime::AsyncFuture<T> createAsync(std::function<T()> func) {
         return runtime::AsyncSystem::createAsync(func).execute();
     }
 
     template<typename T>
-    T await(runtime::Future<T>& future) {
+    T await(runtime::AsyncFuture<T>& future) {
         return runtime::AsyncSystem::await(future);
     }
 

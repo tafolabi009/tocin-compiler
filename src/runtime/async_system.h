@@ -44,7 +44,7 @@ struct TaskResult {
  * @brief Promise implementation
  */
 template<typename T>
-class Promise {
+class AsyncPromise {
 private:
     std::shared_ptr<std::promise<T>> promise;
     std::shared_ptr<std::future<T>> future;
@@ -52,7 +52,7 @@ private:
     bool resolved;
     
 public:
-    Promise() : promise(std::make_shared<std::promise<T>>()), 
+    AsyncPromise() : promise(std::make_shared<std::promise<T>>()), 
                 future(std::make_shared<std::future<T>>(promise->get_future())),
                 resolved(false) {}
     
@@ -107,14 +107,14 @@ public:
  * @brief Future implementation
  */
 template<typename T>
-class Future {
+class AsyncFuture {
 private:
     std::shared_ptr<std::future<T>> future;
     std::function<void(const T&)> onSuccess;
     std::function<void(const std::string&)> onError;
     
 public:
-    Future(std::shared_ptr<std::future<T>> f) : future(f) {}
+    AsyncFuture(std::shared_ptr<std::future<T>> f) : future(f) {}
     
     /**
      * @brief Get the result (blocking)
@@ -144,7 +144,7 @@ public:
     /**
      * @brief Set success callback
      */
-    Future& onSuccess(std::function<void(const T&)> callback) {
+    AsyncFuture& onSuccess(std::function<void(const T&)> callback) {
         onSuccess = callback;
         return *this;
     }
@@ -152,7 +152,7 @@ public:
     /**
      * @brief Set error callback
      */
-    Future& onError(std::function<void(const std::string&)> callback) {
+    AsyncFuture& onError(std::function<void(const std::string&)> callback) {
         onError = callback;
         return *this;
     }
@@ -161,10 +161,10 @@ public:
      * @brief Chain with another future
      */
     template<typename U>
-    Future<U> then(std::function<Future<U>(const T&)> transformer) {
+    AsyncFuture<U> then(std::function<AsyncFuture<U>(const T&)> transformer) {
         // This would implement future chaining
         // For now, return a placeholder
-        return Future<U>(std::make_shared<std::future<U>>());
+        return AsyncFuture<U>(std::make_shared<std::future<U>>());
     }
 };
 
@@ -194,11 +194,11 @@ public:
      * @brief Submit a task for execution
      */
     template<typename F, typename... Args>
-    auto submit(F&& f, Args&&... args) -> Future<decltype(f(args...))> {
+    auto submit(F&& f, Args&&... args) -> AsyncFuture<decltype(f(args...))> {
         using return_type = decltype(f(args...));
         
-        auto promise = std::make_shared<Promise<return_type>>();
-        auto future = std::make_shared<Future<return_type>>(promise->getFuture());
+        auto promise = std::make_shared<AsyncPromise<return_type>>();
+        auto future = std::make_shared<AsyncFuture<return_type>>(promise->getFuture());
         
         auto task = [promise, f = std::forward<F>(f), ...args = std::forward<Args>(args)]() mutable {
             try {
@@ -227,11 +227,11 @@ public:
      * @brief Create a delayed task
      */
     template<typename F, typename... Args>
-    auto delay(std::chrono::milliseconds delay, F&& f, Args&&... args) -> Future<decltype(f(args...))> {
+    auto delay(std::chrono::milliseconds delay, F&& f, Args&&... args) -> AsyncFuture<decltype(f(args...))> {
         using return_type = decltype(f(args...));
         
-        auto promise = std::make_shared<Promise<return_type>>();
-        auto future = std::make_shared<Future<return_type>>(promise->getFuture());
+        auto promise = std::make_shared<AsyncPromise<return_type>>();
+        auto future = std::make_shared<AsyncFuture<return_type>>(promise->getFuture());
         
         auto task = [promise, f = std::forward<F>(f), ...args = std::forward<Args>(args)]() mutable {
             try {
@@ -375,14 +375,14 @@ public:
     /**
      * @brief Execute the async function
      */
-    Future<T> execute() {
+    AsyncFuture<T> execute() {
         return scheduler->submit(func);
     }
     
     /**
      * @brief Execute with delay
      */
-    Future<T> executeAfter(std::chrono::milliseconds delay) {
+    AsyncFuture<T> executeAfter(std::chrono::milliseconds delay) {
         return scheduler->delay(delay, func);
     }
 };
@@ -429,7 +429,7 @@ public:
      * @brief Await a future
      */
     template<typename T>
-    static T await(Future<T>& future) {
+    static T await(AsyncFuture<T>& future) {
         return future.get();
     }
     
@@ -437,7 +437,7 @@ public:
      * @brief Await with timeout
      */
     template<typename T, typename Rep, typename Period>
-    static T await(Future<T>& future, const std::chrono::duration<Rep, Period>& timeout) {
+    static T await(AsyncFuture<T>& future, const std::chrono::duration<Rep, Period>& timeout) {
         return future.get(timeout);
     }
     
@@ -453,10 +453,10 @@ public:
      * @brief Wait for any future
      */
     template<typename T>
-    static Future<T> waitForAny(std::vector<Future<T>>& futures) {
+    static AsyncFuture<T> waitForAny(std::vector<AsyncFuture<T>>& futures) {
         // This would implement waiting for any future to complete
         // For now, return the first future
-        return futures.empty() ? Future<T>(nullptr) : futures[0];
+        return futures.empty() ? AsyncFuture<T>(nullptr) : futures[0];
     }
 };
 

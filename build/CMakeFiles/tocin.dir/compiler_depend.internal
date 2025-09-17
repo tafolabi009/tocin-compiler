@@ -4481,10 +4481,8 @@ CMakeFiles/tocin.dir/src/main.cpp.o
  /workspace/src/ffi/cpp_ffi.h
  /workspace/src/ffi/ffi_cpp.h
  /workspace/src/ffi/ffi_interface.h
- /workspace/src/ffi/ffi_javascript.h
  /workspace/src/ffi/ffi_python.h
  /workspace/src/ffi/ffi_value.h
- /workspace/src/ffi/js_ffi.h
  /workspace/src/ffi/python_ffi.h
  /workspace/src/lexer/token.h
  /workspace/src/error/error_handler.h
@@ -4502,8 +4500,6 @@ CMakeFiles/tocin.dir/src/main.cpp.o
  /workspace/src/ast/ast.h
  /workspace/src/error/error_handler.h
  /workspace/src/runtime/async_system.h
- /workspace/src/runtime/concurrency.h
- /workspace/src/runtime/linq.h
  /workspace/src/ast/ast.h
  /workspace/src/error/error_handler.h
  /workspace/src/targets/wasm_target.h

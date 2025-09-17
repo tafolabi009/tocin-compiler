@@ -225,9 +225,8 @@ bool FeatureManager::isErrorType(ast::TypePtr type) {
 bool FeatureManager::isOptionType(ast::TypePtr type) {
     if (!type) return false;
     
-    if (isFeatureEnabled("result_option")) {
-        return resultOptionChecker_->isOptionType(type);
-    }
+    // Simplified: detect by name
+    return type->toString().find("Option<") != std::string::npos;
     
     return false;
 }
@@ -235,9 +234,8 @@ bool FeatureManager::isOptionType(ast::TypePtr type) {
 bool FeatureManager::isResultType(ast::TypePtr type) {
     if (!type) return false;
     
-    if (isFeatureEnabled("result_option")) {
-        return resultOptionChecker_->isResultType(type);
-    }
+    // Simplified: detect by name
+    return type->toString().find("Result<") != std::string::npos;
     
     return false;
 }
@@ -265,9 +263,7 @@ bool FeatureManager::isNonNullType(ast::TypePtr type) {
 bool FeatureManager::canMove(ast::ExprPtr expr) {
     if (!expr) return false;
     
-    if (isFeatureEnabled("move_semantics")) {
-        return moveSemanticsChecker_->canMove(expr);
-    }
+    // Move analysis not implemented; default to false
     
     return false;
 }
@@ -275,9 +271,7 @@ bool FeatureManager::canMove(ast::ExprPtr expr) {
 bool FeatureManager::shouldMove(ast::ExprPtr expr) {
     if (!expr) return false;
     
-    if (isFeatureEnabled("move_semantics")) {
-        return moveSemanticsChecker_->shouldMove(expr);
-    }
+    // Move analysis not implemented; default to false
     
     return false;
 }
