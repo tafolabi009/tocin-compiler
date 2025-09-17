@@ -1,5 +1,6 @@
-CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o: \
-  /workspace/src/compiler/stdlib.cpp /workspace/src/compiler/stdlib.h \
+CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o: \
+  /workspace/src/ffi/ffi_cpp.cpp /workspace/src/ffi/ffi_cpp.h \
+  /workspace/src/ffi/ffi_interface.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/string \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/requires_hosted.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14/bits/c++config.h \
@@ -147,8 +148,6 @@ CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_vector.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_bvector.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/vector.tcc \
-  /workspace/src/compiler/../ffi/ffi_cpp.h \
-  /workspace/src/compiler/../ffi/ffi_interface.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/memory \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_tempbuf.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_raw_storage_iter.h \
@@ -206,9 +205,8 @@ CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/enable_special_members.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/node_handle.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/erase_if.h \
-  /workspace/src/compiler/../ffi/ffi_value.h \
-  /workspace/src/compiler/../ffi/../ast/types.h \
-  /workspace/src/compiler/../ffi/../ast/../lexer/token.h \
+  /workspace/src/ffi/ffi_value.h /workspace/src/ffi/../ast/types.h \
+  /workspace/src/ffi/../ast/../lexer/token.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/variant \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/parse_numbers.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/cstdint \
@@ -218,14 +216,13 @@ CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/compare \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/cstring \
   /usr/include/string.h /usr/include/strings.h \
-  /workspace/src/compiler/../ffi/cpp_ffi.h \
-  /workspace/src/compiler/../ffi/../ast/ast.h \
+  /workspace/src/ffi/cpp_ffi.h /workspace/src/ffi/../ast/ast.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/stdexcept \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/map \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_tree.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_map.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/stl_multimap.h \
-  /workspace/src/compiler/../ffi/../error/error_handler.h \
+  /workspace/src/ffi/../error/error_handler.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/mutex \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/chrono.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/ratio \
@@ -234,50 +231,4 @@ CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o: \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/std_mutex.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/unique_lock.h \
   /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14/bits/error_constants.h \
-  /workspace/src/compiler/../ffi/../error/../lexer/token.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/cmath \
-  /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
-  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
-  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-macros.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
-  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/specfun.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/gamma.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/special_function_util.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/bessel_function.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/beta_function.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/ell_integral.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/exp_integral.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/hypergeometric.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/legendre_function.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/modified_bessel_func.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/poly_hermite.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/poly_laguerre.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/tr1/riemann_zeta.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/iostream \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/ostream \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/ios \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/ios_base.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/locale_classes.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/locale_classes.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/system_error \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/streambuf \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/streambuf.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/basic_ios.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/locale_facets.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14/bits/ctype_base.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/streambuf_iterator.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/x86_64-linux-gnu/c++/14/bits/ctype_inline.h \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/locale_facets.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/basic_ios.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/ostream.tcc \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/istream \
-  /usr/lib/gcc/x86_64-linux-gnu/14/../../../../include/c++/14/bits/istream.tcc
+  /workspace/src/ffi/../error/../lexer/token.h
