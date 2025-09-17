@@ -80,20 +80,20 @@ public:
 
     // Functional operations
     template<typename F>
-    auto map(F func) const -> Option<decltype(func(value_))> {
-        using ReturnType = decltype(func(value_));
+    auto map(F func) const -> Option<decltype(func(this->value_))> {
+        using ReturnType = decltype(func(this->value_));
         if (hasValue_) {
-            return Option<ReturnType>::Some(func(value_));
+            return Option<ReturnType>::Some(func(this->value_));
         }
         return Option<ReturnType>::None();
     }
 
     template<typename F>
-    auto flatMap(F func) const -> decltype(func(value_)) {
+    auto flatMap(F func) const -> decltype(func(this->value_)) {
         if (hasValue_) {
-            return func(value_);
+            return func(this->value_);
         }
-        return decltype(func(value_))::None();
+        return decltype(func(this->value_))::None();
     }
 
     template<typename F>
@@ -117,7 +117,7 @@ public:
 
 private:
     bool hasValue_;
-    T value_;
+    T value_{};
 };
 
 /**
@@ -224,29 +224,29 @@ public:
 
     // Functional operations
     template<typename F>
-    auto map(F func) const -> Result<decltype(func(value_)), E> {
-        using ReturnType = decltype(func(value_));
+    auto map(F func) const -> Result<decltype(func(this->value_)), E> {
+        using ReturnType = decltype(func(this->value_));
         if (isOk_) {
-            return Result<ReturnType, E>::Ok(func(value_));
+            return Result<ReturnType, E>::Ok(func(this->value_));
         }
         return Result<ReturnType, E>::Err(error_);
     }
 
     template<typename F>
-    auto mapErr(F func) const -> Result<T, decltype(func(error_))> {
-        using ErrorType = decltype(func(error_));
+    auto mapErr(F func) const -> Result<T, decltype(func(this->error_))> {
+        using ErrorType = decltype(func(this->error_));
         if (isOk_) {
             return Result<T, ErrorType>::Ok(value_);
         }
-        return Result<T, ErrorType>::Err(func(error_));
+        return Result<T, ErrorType>::Err(func(this->error_));
     }
 
     template<typename F>
-    auto flatMap(F func) const -> decltype(func(value_)) {
+    auto flatMap(F func) const -> decltype(func(this->value_)) {
         if (isOk_) {
-            return func(value_);
+            return func(this->value_);
         }
-        return decltype(func(value_))::Err(error_);
+        return decltype(func(this->value_))::Err(error_);
     }
 
     // Conversion to Option
@@ -280,10 +280,9 @@ public:
 
 private:
     bool isOk_;
-    union {
-        T value_;
-        E error_;
-    };
+    // Use distinct storage to avoid union lifetime/initialization issues
+    T value_{};
+    E error_{};
 };
 
 /**

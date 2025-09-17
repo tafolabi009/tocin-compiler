@@ -2,9 +2,16 @@
 #define LLVM_SHIM_H
 
 // LLVM shim header to handle different LLVM versions and include paths
+#if __has_include(<llvm/Support/Host.h>)
 #include <llvm/Support/Host.h>
+#define LLVM_HOST_HEADER_AVAILABLE 1
+#else
+#define LLVM_HOST_HEADER_AVAILABLE 0
+// end initial header guard
 #include <llvm/Support/TargetSelect.h>
 #include <llvm/Support/FileSystem.h>
+
+namespace tocin { namespace system { inline std::string getTargetTriple(){ return "x86_64-pc-linux-gnu"; } inline std::string getCPUName(){ return "generic"; } } }
 
 namespace llvm
 {

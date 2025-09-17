@@ -24,6 +24,7 @@ public:
         bool isGlobal;
         size_t scopeLevel;
 
+        Symbol() : isConstant(false), isGlobal(false), scopeLevel(0) {}
         Symbol(const std::string& n, ast::TypePtr t, bool c, bool g)
             : name(n), type(std::move(t)), isConstant(c), isGlobal(g), scopeLevel(0) {}
     };
@@ -110,7 +111,7 @@ public:
     // Diagnostics
     void addError(const std::string& message, size_t line = 0, size_t column = 0);
     void addWarning(const std::string& message, size_t line = 0, size_t column = 0);
-    void addError(const std::string& error); // legacy/simple variant
+    void addSimpleError(const std::string& error); // legacy/simple variant
     const std::vector<std::string>& getErrors() const { return errors_; }
     const std::vector<std::string>& getWarnings() const { return warnings_; }
     void clearErrors() { errors_.clear(); }

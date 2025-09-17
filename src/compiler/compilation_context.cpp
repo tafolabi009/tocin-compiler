@@ -34,7 +34,7 @@ bool CompilationContext::declareSymbol(const std::string& name, ast::TypePtr typ
 bool CompilationContext::declareSymbol(const Symbol& symbol) {
     auto& currentScope = symbolTables_[currentScopeLevel_];
     if (currentScope.find(symbol.name) != currentScope.end()) {
-        addError("Symbol '" + symbol.name + "' already declared in current scope");
+        addSimpleError("Symbol '" + symbol.name + "' already declared in current scope");
         return false;
     }
     currentScope[symbol.name] = symbol;
@@ -106,7 +106,7 @@ std::vector<CompilationContext::FunctionInfo*> CompilationContext::lookupOverloa
 
 bool CompilationContext::declareClass(const ClassInfo& classInfo) {
     if (classes_.find(classInfo.name) != classes_.end()) {
-        addError("Class '" + classInfo.name + "' already declared");
+        addSimpleError("Class '" + classInfo.name + "' already declared");
         return false;
     }
     classes_[classInfo.name] = classInfo;
@@ -125,7 +125,7 @@ const CompilationContext::ClassInfo* CompilationContext::lookupClass(const std::
 
 bool CompilationContext::declareTrait(const TraitInfo& traitInfo) {
     if (traits_.find(traitInfo.name) != traits_.end()) {
-        addError("Trait '" + traitInfo.name + "' already declared");
+        addSimpleError("Trait '" + traitInfo.name + "' already declared");
         return false;
     }
     traits_[traitInfo.name] = traitInfo;
@@ -234,9 +234,7 @@ void CompilationContext::addWarning(const std::string& message, size_t line, siz
 }
 
 void CompilationContext::addDependency(const std::string& dependency) {
-    if (std::find(dependencies_.begin(), dependencies_.end(), dependency) == dependencies_.end()) {
-        dependencies_.push_back(dependency);
-    }
+    dependencies_.insert(dependency);
 }
 
 void CompilationContext::addSymbol(const std::string& name, void* symbol) {
@@ -260,7 +258,7 @@ void CompilationContext::addDependency(const std::string& moduleName) {
     dependencies_.insert(moduleName);
 }
 
-void CompilationContext::addError(const std::string& error) {
+void CompilationContext::addSimpleError(const std::string& error) {
     std::lock_guard<std::mutex> lock(mutex_);
     errors_.push_back(error);
 }
