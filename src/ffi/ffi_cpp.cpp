@@ -1,7 +1,6 @@
 #include "ffi_cpp.h"
 #include <stdexcept>
 
-namespace tocin {
 namespace ffi {
 
     void CppFFI::registerFunction(const std::string& name, CppFunction func) {
@@ -29,4 +28,3 @@ namespace ffi {
     }
 
 } // namespace ffi
-} // namespace tocin
