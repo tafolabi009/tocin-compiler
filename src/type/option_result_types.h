@@ -15,6 +15,9 @@ namespace type_checker {
  */
 template<typename T>
 class Option {
+private:
+    bool hasValue_;
+    T value_{};
 public:
     // Constructors
     Option() : hasValue_(false) {}
@@ -115,9 +118,6 @@ public:
         return !(*this == other);
     }
 
-private:
-    bool hasValue_;
-    T value_{};
 };
 
 /**
@@ -125,6 +125,10 @@ private:
  */
 template<typename T, typename E = std::string>
 class Result {
+private:
+    bool isOk_;
+    T value_{};
+    E error_{};
 public:
     // Constructors
     Result(const T& value) : isOk_(true), value_(value) {}
@@ -278,11 +282,6 @@ public:
         return !(*this == other);
     }
 
-private:
-    bool isOk_;
-    // Use distinct storage to avoid union lifetime/initialization issues
-    T value_{};
-    E error_{};
 };
 
 /**
