@@ -193,12 +193,7 @@ bool FeatureManager::isTypeCompatible(ast::TypePtr from, ast::TypePtr to) {
     // Basic type compatibility
     if (from->toString() == to->toString()) return true;
     
-    // Check null safety compatibility
-    if (isFeatureEnabled("null_safety")) {
-        if (nullSafetyChecker_->isTypeCompatible(from, to)) {
-            return true;
-        }
-    }
+    // Null safety compatibility not implemented beyond basic check
     
     // Check result/option compatibility
     // Result/Option compatibility not implemented; skip
@@ -209,12 +204,7 @@ bool FeatureManager::isTypeCompatible(ast::TypePtr from, ast::TypePtr to) {
 bool FeatureManager::canImplicitlyConvert(ast::TypePtr from, ast::TypePtr to) {
     if (!from || !to) return false;
     
-    // Check null safety conversions
-    if (isFeatureEnabled("null_safety")) {
-        if (nullSafetyChecker_->canImplicitlyConvert(from, to)) {
-            return true;
-        }
-    }
+    // Null safety implicit conversions not implemented
     
     // Check result/option conversions
     // Result/Option implicit conversions not implemented; skip

@@ -56,7 +56,7 @@
 #include "ffi/ffi_python.h"
 #endif
 #include "ffi/ffi_cpp.h"
-#include "ffi/ffi_javascript.h"
+// #include "ffi/ffi_javascript.h" // Temporarily disabled to avoid duplicate NodeJS/Browser integration
 
 // Advanced features
 #include "type/option_result_types.h"
@@ -65,8 +65,8 @@
 #include "type/null_safety.h"
 #include "type/move_semantics.h"
 #include "type/extension_functions.h"
-#include "runtime/concurrency.h"
-#include "runtime/linq.h"
+// #include "runtime/concurrency.h" // Temporarily disabled to avoid Promise/Future duplication
+// #include "runtime/linq.h" // Disabled until LINQ header duplication is resolved
 
 /**
  * @brief Enhanced compiler structure with all new features
