@@ -530,78 +530,6 @@ src/error/error_handler.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/error/error_handler.cpp.s
 .PHONY : src/error/error_handler.cpp.s
 
-src/ffi/ffi_cpp.o: src/ffi/ffi_cpp.cpp.o
-.PHONY : src/ffi/ffi_cpp.o
-
-# target to build an object file
-src/ffi/ffi_cpp.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o
-.PHONY : src/ffi/ffi_cpp.cpp.o
-
-src/ffi/ffi_cpp.i: src/ffi/ffi_cpp.cpp.i
-.PHONY : src/ffi/ffi_cpp.i
-
-# target to preprocess a source file
-src/ffi/ffi_cpp.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.i
-.PHONY : src/ffi/ffi_cpp.cpp.i
-
-src/ffi/ffi_cpp.s: src/ffi/ffi_cpp.cpp.s
-.PHONY : src/ffi/ffi_cpp.s
-
-# target to generate assembly for a file
-src/ffi/ffi_cpp.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.s
-.PHONY : src/ffi/ffi_cpp.cpp.s
-
-src/ffi/ffi_javascript.o: src/ffi/ffi_javascript.cpp.o
-.PHONY : src/ffi/ffi_javascript.o
-
-# target to build an object file
-src/ffi/ffi_javascript.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o
-.PHONY : src/ffi/ffi_javascript.cpp.o
-
-src/ffi/ffi_javascript.i: src/ffi/ffi_javascript.cpp.i
-.PHONY : src/ffi/ffi_javascript.i
-
-# target to preprocess a source file
-src/ffi/ffi_javascript.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.i
-.PHONY : src/ffi/ffi_javascript.cpp.i
-
-src/ffi/ffi_javascript.s: src/ffi/ffi_javascript.cpp.s
-.PHONY : src/ffi/ffi_javascript.s
-
-# target to generate assembly for a file
-src/ffi/ffi_javascript.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.s
-.PHONY : src/ffi/ffi_javascript.cpp.s
-
-src/ffi/ffi_python.o: src/ffi/ffi_python.cpp.o
-.PHONY : src/ffi/ffi_python.o
-
-# target to build an object file
-src/ffi/ffi_python.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o
-.PHONY : src/ffi/ffi_python.cpp.o
-
-src/ffi/ffi_python.i: src/ffi/ffi_python.cpp.i
-.PHONY : src/ffi/ffi_python.i
-
-# target to preprocess a source file
-src/ffi/ffi_python.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.i
-.PHONY : src/ffi/ffi_python.cpp.i
-
-src/ffi/ffi_python.s: src/ffi/ffi_python.cpp.s
-.PHONY : src/ffi/ffi_python.s
-
-# target to generate assembly for a file
-src/ffi/ffi_python.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/tocin.dir/build.make CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.s
-.PHONY : src/ffi/ffi_python.cpp.s
-
 src/ffi/ffi_value.o: src/ffi/ffi_value.cpp.o
 .PHONY : src/ffi/ffi_value.o
 
@@ -941,15 +869,6 @@ help:
 	@echo "... src/error/error_handler.o"
 	@echo "... src/error/error_handler.i"
 	@echo "... src/error/error_handler.s"
-	@echo "... src/ffi/ffi_cpp.o"
-	@echo "... src/ffi/ffi_cpp.i"
-	@echo "... src/ffi/ffi_cpp.s"
-	@echo "... src/ffi/ffi_javascript.o"
-	@echo "... src/ffi/ffi_javascript.i"
-	@echo "... src/ffi/ffi_javascript.s"
-	@echo "... src/ffi/ffi_python.o"
-	@echo "... src/ffi/ffi_python.i"
-	@echo "... src/ffi/ffi_python.s"
 	@echo "... src/ffi/ffi_value.o"
 	@echo "... src/ffi/ffi_value.i"
 	@echo "... src/ffi/ffi_value.s"

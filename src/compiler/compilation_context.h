@@ -116,6 +116,11 @@ public:
     const std::vector<std::string>& getWarnings() const { return warnings_; }
     void clearErrors() { errors_.clear(); }
 
+    // External symbol registry (for FFI / runtime pointers)
+    void addSymbol(const std::string& name, void* symbol);
+    void* getSymbol(const std::string& name) const;
+    bool hasSymbol(const std::string& name) const;
+
     // Performance tracking
     void startTimer(const std::string& phase);
     double endTimer(const std::string& phase);

@@ -262,6 +262,7 @@ ast::StmtPtr assertMacro(const MacroContext& context, error::ErrorHandler& error
         lexer::Token(lexer::TokenType::IF, "if", "", 0, 0),
         condition,
         thenBlock,
+        std::vector<std::pair<ast::ExprPtr, ast::StmtPtr>>{},
         nullptr
     );
 }
@@ -284,7 +285,8 @@ ast::StmtPtr measureMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "start_time",
         nullptr,
-        startTime
+        startTime,
+        false
     );
     
     // Execute the measured code
@@ -317,7 +319,8 @@ ast::StmtPtr measureMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "elapsed",
         nullptr,
-        elapsedExpr
+        elapsedExpr,
+        false
     );
     
     // Print the result
@@ -447,10 +450,11 @@ ast::StmtPtr letMacro(const MacroContext& context, error::ErrorHandler& errorHan
     }
     
     return std::make_shared<ast::VariableStmt>(
-    lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
-    varName,
-    nullptr,
-    value
+        lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
+        varName,
+        nullptr,
+        value,
+        false
     );
 }
 
@@ -538,7 +542,8 @@ ast::StmtPtr profileMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "start_time",
         nullptr,
-        startTime
+        startTime,
+        false
     );
     
     // Call the function
@@ -563,8 +568,9 @@ ast::StmtPtr profileMacro(const MacroContext& context, error::ErrorHandler& erro
     auto duration = std::make_shared<ast::BinaryExpr>(
         lexer::Token(lexer::TokenType::MINUS, "-", "", 0, 0),
         endTime,
+        lexer::Token(lexer::TokenType::MINUS, "-", "", 0, 0),
         std::make_shared<ast::VariableExpr>(
-            lexer::Token(lexer::TokenType::IDENTIFIER, "start_time", "", 0, 0)
+            lexer::Token(lexer::TokenType::IDENTIFIER, "start_time", "", 0, 0), "start_time"
         )
     );
     
@@ -572,7 +578,8 @@ ast::StmtPtr profileMacro(const MacroContext& context, error::ErrorHandler& erro
         lexer::Token(lexer::TokenType::LET, "let", "", 0, 0),
         "duration",
         nullptr,
-        duration
+        duration,
+        false
     );
     
     // Print result

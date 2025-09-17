@@ -565,3 +565,40 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "CMakeLists.txt:64 (try_compile)"
+    directories:
+      source: "/workspace/build/CMakeFiles/CMakeTmp"
+      binary: "/workspace/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/usr/bin/clang-scan-deps-20"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/llvm-20/cmake"
+    buildResult:
+      variable: "LLVM_HOST_HEADER_TEST"
+      cached: true
+      stdout: |
+        Change Dir: '/workspace/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7b899/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7b899.dir/build.make CMakeFiles/cmTC_7b899.dir/build
+        gmake[1]: Entering directory '/workspace/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_7b899.dir/llvm_host_test.cpp.o
+        /usr/bin/c++  -I/usr/lib/llvm-20/include -std=c++17 -MD -MT CMakeFiles/cmTC_7b899.dir/llvm_host_test.cpp.o -MF CMakeFiles/cmTC_7b899.dir/llvm_host_test.cpp.o.d -o CMakeFiles/cmTC_7b899.dir/llvm_host_test.cpp.o -c /workspace/build/llvm_host_test.cpp
+        /workspace/build/llvm_host_test.cpp:1:10: fatal error: 'llvm/Support/Host.h' file not found
+            1 | #include <llvm/Support/Host.h>
+              |          ^~~~~~~~~~~~~~~~~~~~~
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_7b899.dir/build.make:82: CMakeFiles/cmTC_7b899.dir/llvm_host_test.cpp.o] Error 1
+        gmake[1]: Leaving directory '/workspace/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:134: cmTC_7b899/fast] Error 2
+        
+      exitCode: 2
+...

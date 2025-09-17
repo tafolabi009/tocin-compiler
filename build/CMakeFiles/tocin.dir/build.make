@@ -201,52 +201,10 @@ CMakeFiles/tocin.dir/src/error/error_handler.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/error/error_handler.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/src/error/error_handler.cpp -o CMakeFiles/tocin.dir/src/error/error_handler.cpp.s
 
-CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o: /workspace/src/ffi/ffi_cpp.cpp
-CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o -MF CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o.d -o CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o -c /workspace/src/ffi/ffi_cpp.cpp
-
-CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/src/ffi/ffi_cpp.cpp > CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.i
-
-CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/src/ffi/ffi_cpp.cpp -o CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.s
-
-CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o: /workspace/src/ffi/ffi_javascript.cpp
-CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o -MF CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o.d -o CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o -c /workspace/src/ffi/ffi_javascript.cpp
-
-CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/src/ffi/ffi_javascript.cpp > CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.i
-
-CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/src/ffi/ffi_javascript.cpp -o CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.s
-
-CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o: CMakeFiles/tocin.dir/flags.make
-CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o: /workspace/src/ffi/ffi_python.cpp
-CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o -MF CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o.d -o CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o -c /workspace/src/ffi/ffi_python.cpp
-
-CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /workspace/src/ffi/ffi_python.cpp > CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.i
-
-CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /workspace/src/ffi/ffi_python.cpp -o CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.s
-
 CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o: /workspace/src/ffi/ffi_value.cpp
 CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o -MF CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o.d -o CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o -c /workspace/src/ffi/ffi_value.cpp
 
 CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.i: cmake_force
@@ -260,7 +218,7 @@ CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o: /workspace/src/lexer/lexer.cpp
 CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o -MF CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o.d -o CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o -c /workspace/src/lexer/lexer.cpp
 
 CMakeFiles/tocin.dir/src/lexer/lexer.cpp.i: cmake_force
@@ -274,7 +232,7 @@ CMakeFiles/tocin.dir/src/lexer/lexer.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/lexer/token.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/lexer/token.cpp.o: /workspace/src/lexer/token.cpp
 CMakeFiles/tocin.dir/src/lexer/token.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tocin.dir/src/lexer/token.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/tocin.dir/src/lexer/token.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/lexer/token.cpp.o -MF CMakeFiles/tocin.dir/src/lexer/token.cpp.o.d -o CMakeFiles/tocin.dir/src/lexer/token.cpp.o -c /workspace/src/lexer/token.cpp
 
 CMakeFiles/tocin.dir/src/lexer/token.cpp.i: cmake_force
@@ -288,7 +246,7 @@ CMakeFiles/tocin.dir/src/lexer/token.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/main.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/main.cpp.o: /workspace/src/main.cpp
 CMakeFiles/tocin.dir/src/main.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tocin.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/tocin.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/main.cpp.o -MF CMakeFiles/tocin.dir/src/main.cpp.o.d -o CMakeFiles/tocin.dir/src/main.cpp.o -c /workspace/src/main.cpp
 
 CMakeFiles/tocin.dir/src/main.cpp.i: cmake_force
@@ -302,7 +260,7 @@ CMakeFiles/tocin.dir/src/main.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/parser/parser.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/parser/parser.cpp.o: /workspace/src/parser/parser.cpp
 CMakeFiles/tocin.dir/src/parser/parser.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tocin.dir/src/parser/parser.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/tocin.dir/src/parser/parser.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/parser/parser.cpp.o -MF CMakeFiles/tocin.dir/src/parser/parser.cpp.o.d -o CMakeFiles/tocin.dir/src/parser/parser.cpp.o -c /workspace/src/parser/parser.cpp
 
 CMakeFiles/tocin.dir/src/parser/parser.cpp.i: cmake_force
@@ -316,7 +274,7 @@ CMakeFiles/tocin.dir/src/parser/parser.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o: /workspace/src/runtime/native_functions.cpp
 CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o -MF CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o.d -o CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.o -c /workspace/src/runtime/native_functions.cpp
 
 CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.i: cmake_force
@@ -330,7 +288,7 @@ CMakeFiles/tocin.dir/src/runtime/native_functions.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o: /workspace/src/type/feature_integration.cpp
 CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o -MF CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o.d -o CMakeFiles/tocin.dir/src/type/feature_integration.cpp.o -c /workspace/src/type/feature_integration.cpp
 
 CMakeFiles/tocin.dir/src/type/feature_integration.cpp.i: cmake_force
@@ -344,7 +302,7 @@ CMakeFiles/tocin.dir/src/type/feature_integration.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/type/null_safety.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/type/null_safety.cpp.o: /workspace/src/type/null_safety.cpp
 CMakeFiles/tocin.dir/src/type/null_safety.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tocin.dir/src/type/null_safety.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/tocin.dir/src/type/null_safety.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/null_safety.cpp.o -MF CMakeFiles/tocin.dir/src/type/null_safety.cpp.o.d -o CMakeFiles/tocin.dir/src/type/null_safety.cpp.o -c /workspace/src/type/null_safety.cpp
 
 CMakeFiles/tocin.dir/src/type/null_safety.cpp.i: cmake_force
@@ -358,7 +316,7 @@ CMakeFiles/tocin.dir/src/type/null_safety.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o: /workspace/src/type/option_result_types.cpp
 CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o -MF CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o.d -o CMakeFiles/tocin.dir/src/type/option_result_types.cpp.o -c /workspace/src/type/option_result_types.cpp
 
 CMakeFiles/tocin.dir/src/type/option_result_types.cpp.i: cmake_force
@@ -372,7 +330,7 @@ CMakeFiles/tocin.dir/src/type/option_result_types.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/type/ownership.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/type/ownership.cpp.o: /workspace/src/type/ownership.cpp
 CMakeFiles/tocin.dir/src/type/ownership.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/tocin.dir/src/type/ownership.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/tocin.dir/src/type/ownership.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/ownership.cpp.o -MF CMakeFiles/tocin.dir/src/type/ownership.cpp.o.d -o CMakeFiles/tocin.dir/src/type/ownership.cpp.o -c /workspace/src/type/ownership.cpp
 
 CMakeFiles/tocin.dir/src/type/ownership.cpp.i: cmake_force
@@ -386,7 +344,7 @@ CMakeFiles/tocin.dir/src/type/ownership.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/type/traits.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/type/traits.cpp.o: /workspace/src/type/traits.cpp
 CMakeFiles/tocin.dir/src/type/traits.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/tocin.dir/src/type/traits.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/tocin.dir/src/type/traits.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/traits.cpp.o -MF CMakeFiles/tocin.dir/src/type/traits.cpp.o.d -o CMakeFiles/tocin.dir/src/type/traits.cpp.o -c /workspace/src/type/traits.cpp
 
 CMakeFiles/tocin.dir/src/type/traits.cpp.i: cmake_force
@@ -400,7 +358,7 @@ CMakeFiles/tocin.dir/src/type/traits.cpp.s: cmake_force
 CMakeFiles/tocin.dir/src/type/type_checker.cpp.o: CMakeFiles/tocin.dir/flags.make
 CMakeFiles/tocin.dir/src/type/type_checker.cpp.o: /workspace/src/type/type_checker.cpp
 CMakeFiles/tocin.dir/src/type/type_checker.cpp.o: CMakeFiles/tocin.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/tocin.dir/src/type/type_checker.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/tocin.dir/src/type/type_checker.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/tocin.dir/src/type/type_checker.cpp.o -MF CMakeFiles/tocin.dir/src/type/type_checker.cpp.o.d -o CMakeFiles/tocin.dir/src/type/type_checker.cpp.o -c /workspace/src/type/type_checker.cpp
 
 CMakeFiles/tocin.dir/src/type/type_checker.cpp.i: cmake_force
@@ -422,9 +380,6 @@ tocin_OBJECTS = \
 "CMakeFiles/tocin.dir/src/compiler/macro_system.cpp.o" \
 "CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o" \
 "CMakeFiles/tocin.dir/src/error/error_handler.cpp.o" \
-"CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o" \
-"CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o" \
-"CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o" \
 "CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o" \
 "CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o" \
 "CMakeFiles/tocin.dir/src/lexer/token.cpp.o" \
@@ -450,9 +405,6 @@ tocin: CMakeFiles/tocin.dir/src/compiler/compiler.cpp.o
 tocin: CMakeFiles/tocin.dir/src/compiler/macro_system.cpp.o
 tocin: CMakeFiles/tocin.dir/src/compiler/stdlib.cpp.o
 tocin: CMakeFiles/tocin.dir/src/error/error_handler.cpp.o
-tocin: CMakeFiles/tocin.dir/src/ffi/ffi_cpp.cpp.o
-tocin: CMakeFiles/tocin.dir/src/ffi/ffi_javascript.cpp.o
-tocin: CMakeFiles/tocin.dir/src/ffi/ffi_python.cpp.o
 tocin: CMakeFiles/tocin.dir/src/ffi/ffi_value.cpp.o
 tocin: CMakeFiles/tocin.dir/src/lexer/lexer.cpp.o
 tocin: CMakeFiles/tocin.dir/src/lexer/token.cpp.o
@@ -470,7 +422,7 @@ tocin: CMakeFiles/tocin.dir/compiler_depend.ts
 tocin: /usr/lib/x86_64-linux-gnu/libz.so
 tocin: /usr/lib/x86_64-linux-gnu/libpython3.13.so
 tocin: CMakeFiles/tocin.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking CXX executable tocin"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/workspace/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Linking CXX executable tocin"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/tocin.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

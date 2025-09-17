@@ -11,7 +11,7 @@ CompilationContext::CompilationContext(const std::string& filename)
       concurrencyEnabled_(true), advancedFeaturesEnabled_(true), isCompiling_(false) {
 }
 
-CompilationContext::~CompilationContext() = default;
+
 
 void CompilationContext::enterScope() {
     currentScopeLevel_++;
@@ -233,9 +233,7 @@ void CompilationContext::addWarning(const std::string& message, size_t line, siz
     warnings_.push_back(fullMessage);
 }
 
-void CompilationContext::addDependency(const std::string& dependency) {
-    dependencies_.insert(dependency);
-}
+// removed duplicate addDependency(dependency)
 
 void CompilationContext::addSymbol(const std::string& name, void* symbol) {
     std::lock_guard<std::mutex> lock(mutex_);
