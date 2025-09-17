@@ -122,12 +122,14 @@ public:
                  const CompilationOptions &options = CompilationOptions())
     {
         // Process macros if enabled
+        std::string srcCopy = source;
         if (options.enableMacros) {
-            source = processMacros(source, filename);
+            std::string processed = processMacros(srcCopy, filename);
+            srcCopy = processed;
         }
 
         // Lexical analysis
-        lexer::Lexer lexer(source, filename, 4);
+        lexer::Lexer lexer(srcCopy, filename, 4);
         std::vector<lexer::Token> tokens = lexer.tokenize();
 
         if (errorHandler.hasFatalErrors())

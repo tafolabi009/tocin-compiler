@@ -66,6 +66,15 @@ public:
             resolved = true;
         }
     }
+    void resolve() {
+        std::lock_guard<std::mutex> lock(mutex);
+        if (!resolved) {
+            if constexpr (std::is_same_v<T, void>) {
+                promise->set_value();
+            }
+            resolved = true;
+        }
+    }
     
     /**
      * @brief Reject the promise with an error
@@ -193,8 +202,13 @@ public:
         
         auto task = [promise, f = std::forward<F>(f), ...args = std::forward<Args>(args)]() mutable {
             try {
-                auto result = std::invoke(f, args...);
-                promise->resolve(result);
+                if constexpr (std::is_same_v<return_type, void>) {
+                    std::invoke(f, args...);
+                    promise->resolve();
+                } else {
+                    auto result = std::invoke(f, args...);
+                    promise->resolve(result);
+                }
             } catch (const std::exception& e) {
                 promise->reject(e.what());
             }
@@ -221,8 +235,13 @@ public:
         
         auto task = [promise, f = std::forward<F>(f), ...args = std::forward<Args>(args)]() mutable {
             try {
-                auto result = std::invoke(f, args...);
-                promise->resolve(result);
+                if constexpr (std::is_same_v<return_type, void>) {
+                    std::invoke(f, args...);
+                    promise->resolve();
+                } else {
+                    auto result = std::invoke(f, args...);
+                    promise->resolve(result);
+                }
             } catch (const std::exception& e) {
                 promise->reject(e.what());
             }
@@ -441,10 +460,6 @@ public:
     }
 };
 
-// Static member initialization
-template<typename T>
-std::shared_ptr<AsyncScheduler> AsyncSystem::globalScheduler = nullptr;
-
-std::mutex AsyncSystem::schedulerMutex;
+// Static member declarations (definitions should be in a .cpp if ODR issues arise)
 
 } // namespace runtime 
