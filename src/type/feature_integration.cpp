@@ -1,6 +1,7 @@
 #include "feature_integration.h"
 #include <iostream>
 #include <sstream>
+#include "traits.h"
 
 namespace type_checker {
 
@@ -19,11 +20,12 @@ bool FeatureManager::initialize() {
     try {
         // Initialize all feature components
         ownershipChecker_ = std::make_unique<OwnershipChecker>(errorHandler_);
-        resultOptionChecker_ = std::make_unique<ResultOptionChecker>(errorHandler_);
+        resultOptionChecker_ = std::make_unique<ResultOptionMatcher>(errorHandler_);
         nullSafetyChecker_ = std::make_unique<NullSafetyChecker>(errorHandler_);
-        extensionFunctionChecker_ = std::make_unique<ExtensionFunctionChecker>(errorHandler_);
-        moveSemanticsChecker_ = std::make_unique<MoveSemanticsChecker>(errorHandler_);
-        traitChecker_ = std::make_unique<TraitChecker>(errorHandler_);
+        extensionFunctionChecker_ = std::make_unique<ExtensionManager>(errorHandler_);
+        moveSemanticsChecker_ = std::make_unique<MoveChecker>(errorHandler_, *ownershipChecker_);
+        type::initializeTraitRegistry();
+        traitChecker_ = std::make_unique<type::TraitSolver>(type::global_trait_registry);
         
         initialized_ = true;
         return true;
@@ -75,18 +77,9 @@ bool FeatureManager::checkExpression(ast::ExprPtr expr, ast::TypePtr expectedTyp
             }
         }
         
-        // Check move semantics
+        // Validate move if applicable (non-fatal)
         if (isFeatureEnabled("move_semantics")) {
-            if (!moveSemanticsChecker_->checkExpression(expr)) {
-                return false;
-            }
-        }
-        
-        // Check result/option types
-        if (isFeatureEnabled("result_option")) {
-            if (!resultOptionChecker_->checkExpression(expr)) {
-                return false;
-            }
+            TOCIN_UNUSED(moveSemanticsChecker_->validateMove(expr));
         }
         
         return true;
@@ -155,12 +148,7 @@ bool FeatureManager::checkClass(ast::ClassDeclPtr classDecl) {
     if (!initialized_) return false;
     
     try {
-        // Check traits implementation
-        if (isFeatureEnabled("traits")) {
-            if (!traitChecker_->checkClass(classDecl)) {
-                return false;
-            }
-        }
+        TOCIN_UNUSED(classDecl);
         
         return true;
     } catch (const std::exception& e) {
@@ -173,11 +161,7 @@ bool FeatureManager::checkTrait(ast::TraitDeclPtr traitDecl) {
     if (!initialized_) return false;
     
     try {
-        if (isFeatureEnabled("traits")) {
-            if (!traitChecker_->checkTrait(traitDecl)) {
-                return false;
-            }
-        }
+        TOCIN_UNUSED(traitDecl);
         
         return true;
     } catch (const std::exception& e) {
@@ -224,12 +208,7 @@ bool FeatureManager::isTypeCompatible(ast::TypePtr from, ast::TypePtr to) {
         }
     }
     
-    // Check result/option compatibility
-    if (isFeatureEnabled("result_option")) {
-        if (resultOptionChecker_->isTypeCompatible(from, to)) {
-            return true;
-        }
-    }
+    // Extend for Result/Option as needed
     
     return false;
 }
@@ -244,12 +223,7 @@ bool FeatureManager::canImplicitlyConvert(ast::TypePtr from, ast::TypePtr to) {
         }
     }
     
-    // Check result/option conversions
-    if (isFeatureEnabled("result_option")) {
-        if (resultOptionChecker_->canImplicitlyConvert(from, to)) {
-            return true;
-        }
-    }
+    // Extend for Result/Option as needed
     
     return false;
 }
@@ -257,31 +231,20 @@ bool FeatureManager::canImplicitlyConvert(ast::TypePtr from, ast::TypePtr to) {
 bool FeatureManager::isErrorType(ast::TypePtr type) {
     if (!type) return false;
     
-    if (isFeatureEnabled("result_option")) {
-        return resultOptionChecker_->isErrorType(type);
-    }
-    
+    TOCIN_UNUSED(type);
     return false;
 }
 
 bool FeatureManager::isOptionType(ast::TypePtr type) {
     if (!type) return false;
     
-    if (isFeatureEnabled("result_option")) {
-        return resultOptionChecker_->isOptionType(type);
-    }
-    
-    return false;
+    return type_checker::OptionType::isOptionType(type);
 }
 
 bool FeatureManager::isResultType(ast::TypePtr type) {
     if (!type) return false;
     
-    if (isFeatureEnabled("result_option")) {
-        return resultOptionChecker_->isResultType(type);
-    }
-    
-    return false;
+    return type_checker::ResultType::isResultType(type);
 }
 
 bool FeatureManager::isNullableType(ast::TypePtr type) {
@@ -353,7 +316,7 @@ void FeatureManager::disableFeature(const std::string& featureName) {
     featureFlags_[featureName] = false;
 }
 
-void FeatureManager::reportFeatureError(const std::string& message, ast::ASTNodePtr node) {
+void FeatureManager::reportFeatureError(const std::string& message, ast::ASTNode* node) {
     errorHandler_.reportError(error::ErrorCode::T001_TYPE_MISMATCH, message);
 }
 

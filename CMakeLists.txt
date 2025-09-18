@@ -1,4 +1,4 @@
-﻿cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.16)
 project(Tocin LANGUAGES C CXX)
 
 # Set C++ standard to C++17 for better compatibility
@@ -40,15 +40,10 @@ include_directories(${ZLIB_INCLUDE_DIRS})
 # -------------------------
 # LLVM Integration
 # -------------------------
-<<<<<<< Current (Your changes)
-# First try to find LLVM through standard paths
-set(`LLVM_DIR "D:/Downloads/msys64/mingw64/lib/cmake/llvm")
-=======
 # First try to find LLVM through standard paths; on Windows allow a fallback hint
 if(WIN32 AND NOT DEFINED LLVM_DIR)
     set(LLVM_DIR "D:/Downloads/msys64/mingw64/lib/cmake/llvm")
 endif()
->>>>>>> Incoming (Background Agent changes)
 find_package(LLVM REQUIRED CONFIG)
 
 if(LLVM_FOUND)
