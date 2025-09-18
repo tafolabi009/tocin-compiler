@@ -279,7 +279,7 @@ bool NullSafetyChecker::isDefinitelyNonNull(ast::ExprPtr expr) {
     return definitelyNonNull_.find(varName) != definitelyNonNull_.end();
 }
 
-void NullSafetyChecker::reportNullSafetyError(const std::string& message, ast::ASTNodePtr node) {
+void NullSafetyChecker::reportNullSafetyError(const std::string& message, ast::Node* node) {
     errorHandler_.reportError(error::ErrorCode::T001_TYPE_MISMATCH, message);
 }
 

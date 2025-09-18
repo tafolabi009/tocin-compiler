@@ -242,7 +242,7 @@ bool OwnershipChecker::transferOwnership(ast::ExprPtr from, ast::ExprPtr to) {
     return true;
 }
 
-void OwnershipChecker::reportOwnershipError(const std::string& message, ast::ASTNodePtr node) {
+void OwnershipChecker::reportOwnershipError(const std::string& message, ast::Node* node) {
     errorHandler_.reportError(error::ErrorCode::B009_INVALID_OWNERSHIP, message);
 }
 

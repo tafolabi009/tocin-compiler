@@ -19,11 +19,14 @@ bool FeatureManager::initialize() {
     try {
         // Initialize all feature components
         ownershipChecker_ = std::make_unique<OwnershipChecker>(errorHandler_);
-        resultOptionChecker_ = std::make_unique<ResultOptionChecker>(errorHandler_);
+        resultOptionChecker_ = std::make_unique<ResultOptionMatcher>(errorHandler_);
         nullSafetyChecker_ = std::make_unique<NullSafetyChecker>(errorHandler_);
-        extensionFunctionChecker_ = std::make_unique<ExtensionFunctionChecker>(errorHandler_);
-        moveSemanticsChecker_ = std::make_unique<MoveSemanticsChecker>(errorHandler_);
-        traitChecker_ = std::make_unique<TraitChecker>(errorHandler_);
+        extensionFunctionChecker_ = std::make_unique<ExtensionManager>(errorHandler_);
+        moveSemanticsChecker_ = std::make_unique<MoveChecker>(errorHandler_);
+
+        // Initialize trait registry and solver
+        type::initializeTraitRegistry();
+        traitChecker_ = std::make_unique<type::TraitSolver>(type::global_trait_registry);
         
         initialized_ = true;
         return true;
@@ -353,7 +356,7 @@ void FeatureManager::disableFeature(const std::string& featureName) {
     featureFlags_[featureName] = false;
 }
 
-void FeatureManager::reportFeatureError(const std::string& message, ast::ASTNodePtr node) {
+void FeatureManager::reportFeatureError(const std::string& message, ast::Node* node) {
     errorHandler_.reportError(error::ErrorCode::T001_TYPE_MISMATCH, message);
 }
 
