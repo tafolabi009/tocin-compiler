@@ -5,6 +5,8 @@
 #include <vector>
 #include <memory>
 #include <unordered_map>
+#include <mutex>
+#include <unordered_set>
 #include <functional>
 #include <type_traits>
 #include <variant>
