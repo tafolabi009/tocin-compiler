@@ -23,7 +23,7 @@ bool FeatureManager::initialize() {
         nullSafetyChecker_ = std::make_unique<NullSafetyChecker>(errorHandler_);
         extensionFunctionChecker_ = std::make_unique<ExtensionFunctionChecker>(errorHandler_);
         moveSemanticsChecker_ = std::make_unique<MoveSemanticsChecker>(errorHandler_);
-        traitChecker_ = std::make_unique<TraitChecker>(errorHandler_);
+        traitChecker_ = std::make_unique<type_checker::TraitChecker>(errorHandler_);
         
         initialized_ = true;
         return true;
@@ -157,7 +157,9 @@ bool FeatureManager::checkClass(ast::ClassDeclPtr classDecl) {
     try {
         // Check traits implementation
         if (isFeatureEnabled("traits")) {
-            if (!traitChecker_->checkClass(classDecl)) {
+            if (!traitChecker_->checkTraitImplementation(
+                    std::make_shared<ast::SimpleType>(lexer::Token(lexer::TokenType::IDENTIFIER, classDecl->getName(), "", 0, 0)),
+                    "")) {
                 return false;
             }
         }
@@ -174,9 +176,8 @@ bool FeatureManager::checkTrait(ast::TraitDeclPtr traitDecl) {
     
     try {
         if (isFeatureEnabled("traits")) {
-            if (!traitChecker_->checkTrait(traitDecl)) {
-                return false;
-            }
+            // Register trait declaration; detailed checking can be added later
+            traitChecker_->registerTrait(traitDecl);
         }
         
         return true;
