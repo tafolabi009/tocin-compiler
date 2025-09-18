@@ -6,18 +6,10 @@
 #include <memory>
 #include <unordered_map>
 #include <mutex>
-<<<<<<< Current (Your changes)
-=======
 #include <unordered_set>
->>>>>>> Incoming (Background Agent changes)
 #include <functional>
 #include <type_traits>
 #include <variant>
-<<<<<<< Current (Your changes)
-#include <mutex>
-#include <algorithm>
-=======
-#include <unordered_set>
 #include <algorithm>
 #include <mutex>
 
@@ -25,7 +17,6 @@
 #include "../ast/types.h"
 #include "../lexer/token.h"
 #include "../error/error_handler.h"
->>>>>>> Incoming (Background Agent changes)
 
 namespace type {
 
